@@ -1,6 +1,6 @@
 extends Node2D
 
-var mouse_speed = 3.0
+var mouse_speed = 5.0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -14,5 +14,5 @@ func _input(event):
 	if Input.is_action_just_released("click"):
 		print("click")
 #		selecting = false
-#	if event is InputEventMouseMotion:
-#		position = event.position
+	if event is InputEventMouseMotion:
+		position = get_global_mouse_position()
