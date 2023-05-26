@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://r2jg2qa78ljk"]
+[gd_scene load_steps=6 format=3 uid="uid://r2jg2qa78ljk"]
 
-[ext_resource type="PackedScene" path="res://scene/Player.tscn" id="1_5qlf1"]
-[ext_resource type="PackedScene" uid="uid://do3cgg7aspb21" path="res://scene/Cursor.tscn" id="1_mgw5y"]
-[ext_resource type="PackedScene" path="res://scene/Platform.tscn" id="2_kb0mr"]
+[ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_5qlf1"]
+[ext_resource type="PackedScene" uid="uid://beknppsfrgvct" path="res://scene/Cursor.tscn" id="1_mgw5y"]
+[ext_resource type="PackedScene" uid="uid://c81jqkjhumv0x" path="res://scene/Platform.tscn" id="2_kb0mr"]
+[ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="5_x6sdr"]
+[ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="6_3gsa4"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(2, -2)
@@ -11,7 +13,25 @@ position = Vector2(2, -2)
 
 [node name="Camera" type="Camera2D" parent="."]
 
+[node name="Platform5" parent="." instance=ExtResource("2_kb0mr")]
+position = Vector2(-392, 150)
+
+[node name="Platform4" parent="." instance=ExtResource("2_kb0mr")]
+position = Vector2(-523, 150)
+
+[node name="Platform3" parent="." instance=ExtResource("2_kb0mr")]
+position = Vector2(-261, 150)
+
+[node name="Platform2" parent="." instance=ExtResource("2_kb0mr")]
+position = Vector2(-130, 150)
+
 [node name="Platform" parent="." instance=ExtResource("2_kb0mr")]
 
 [node name="Cursor" parent="." instance=ExtResource("1_mgw5y")]
 visible = false
+
+[node name="MoovingPlatform" parent="." instance=ExtResource("5_x6sdr")]
+position = Vector2(339, 74)
+
+[node name="CagedMonster" parent="." instance=ExtResource("6_3gsa4")]
+position = Vector2(-452, 14)

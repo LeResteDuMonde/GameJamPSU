@@ -8,6 +8,7 @@ var zero
 var isDeadly = false
 
 func _ready():
+	zero = global_position;
 	#DEBUG
 	makeDeadly()
 	
@@ -24,10 +25,12 @@ func _physics_process(delta):
 			direction = -1
 		if deltax < -amplitude: 
 			direction = 1
-		
-	collision_event = move_and_collide(move)
-	if kill in collision_event.get_collider(): 
-		print_debug("kill")
-		
-func _process(delta):
 	
+		var collision_event = move_and_collide(move)
+		
+		if collision_event != null:
+			print_debug("collision")
+			if "kill" in collision_event.get_collider(): 
+				print_debug("kill")
+		
+#func _process(delta):

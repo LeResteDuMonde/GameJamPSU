@@ -22,5 +22,8 @@ func move(delta, direction,jump):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	
+fun kill():
+		
+	print_debug("kill the player")
 
 	move_and_slide()
