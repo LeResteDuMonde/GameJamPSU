@@ -27,3 +27,4 @@ func _input(event):
 	if event.is_action_released("click") && isSelected:
 		for g in object.get_groups():
 			get_tree().call_group(g, "delete")
+		GameManager.switchToPlayPhase()
