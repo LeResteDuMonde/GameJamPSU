@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn6nb5cwjnt1m"]
+
+[ext_resource type="Texture2D" uid="uid://b41lia1bqwjuf" path="res://sprite/starship.png" id="1_kyx64"]
+[ext_resource type="Script" path="res://script/starship.gd" id="2_oj7pe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s51xt"]
+size = Vector2(43, 66)
+
+[node name="StarShip" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kyx64")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_oj7pe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_s51xt")

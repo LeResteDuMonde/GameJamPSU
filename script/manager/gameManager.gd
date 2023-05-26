@@ -50,6 +50,7 @@ func killPlayer():
 		switchToPlayPhase()
 	
 func win():
+	PlayerManager.respawnPlayer()
 	if not player1Alive:
 		displayEndScreen(2)
 	elif not player2Alive:
@@ -88,4 +89,3 @@ func switchToPlayPhase():
 	elif currPlayer == 2:
 		currPlayer = 1
 	print("Starting Play Phase for Player", currPlayer)
-	PlayerManager.respawnPlayer(Vector2.ZERO)
