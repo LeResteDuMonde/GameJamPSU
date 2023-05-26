@@ -7,7 +7,9 @@ var root
 var web 
 
 var isDeletePhase = false
-var lastPlayer = 1
+var player1Alive = true
+var player2Alive = true
+var currPlayer = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,10 +17,50 @@ func _ready():
 	root = get_tree().root
 	main = root.get_node("Main")
 	cursor = main.get_node("Cursor")
+	
+	# Show Title Screen first
+	displayTitleScreen()
 
 func quit():
 	get_tree().quit()
+	
+var titleS = preload("res://scene/TitleScreen.tscn")
+var title
+
+func displayTitleScreen():
+	print("Show Title Screen")
+	title = titleS.instantiate()
+	main.add_child(title)
+	
+func _input(event):
+	if event.is_action_released("click") and title != null:
+		print("Hide Title Screen")
+		title.queue_free()
+	
+func killPlayer():
+	if currPlayer == 1:
+		player1Alive = false
+	elif currPlayer == 2:
+		player2Alive = false
 		
+	if not player1Alive and not player2Alive:
+		displayEndScreen(0)
+	else:
+		switchToPlayPhase()
+	
+func win():
+	if not player1Alive:
+		displayEndScreen(2)
+	elif not player2Alive:
+		displayEndScreen(1)
+	else:
+		switchToDeletePhase()
+	
+var endS = preload("res://scene/EndScreen.tscn")
+
+func displayEndScreen(winner):
+	main.add_child(endS.instantiate())
+	
 func switchToDeletePhase():
 	print("Finishing Play Phase")
 #	PlayerManager.deletePlayer()
@@ -32,6 +74,9 @@ func switchToPlayPhase():
 	isDeletePhase = false
 	CursorManager.deleteCursor()
 
-	lastPlayer = 1 - lastPlayer
-	print("Starting Play Phase for Player", lastPlayer + 1)
+	if currPlayer == 1:
+		currPlayer = 2
+	elif currPlayer == 2:
+		currPlayer = 1
+	print("Starting Play Phase for Player", currPlayer)
 	PlayerManager.respawnPlayer(Vector2.ZERO)

@@ -24,7 +24,9 @@ func move(delta, direction, jump):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
 func kill():
+	GameManager.killPlayer()
 	print_debug("kill the player")
 
 func jump(delta,jump):
