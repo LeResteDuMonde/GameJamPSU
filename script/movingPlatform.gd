@@ -21,8 +21,8 @@ func _physics_process(delta):
 	
 func delete():
 	print_debug("delete the moving platform")
-	if deleteNumber=1:
+	if deleteNumber==2:
 		queue_free()
 	else: 
-		deleteNumber=1
+		deleteNumber+=1
 		speed=0
