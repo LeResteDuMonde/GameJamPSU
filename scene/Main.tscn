@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://r2jg2qa78ljk"]
 
 [ext_resource type="PackedScene" path="res://scene/Player.tscn" id="1_5qlf1"]
-[ext_resource type="PackedScene" path="res://scene/Cursor.tscn" id="1_mgw5y"]
+[ext_resource type="PackedScene" uid="uid://do3cgg7aspb21" path="res://scene/Cursor.tscn" id="1_mgw5y"]
 [ext_resource type="PackedScene" path="res://scene/Platform.tscn" id="2_kb0mr"]
 
 [node name="Main" type="Node2D"]
@@ -14,4 +14,4 @@ position = Vector2(2, -2)
 [node name="Platform" parent="." instance=ExtResource("2_kb0mr")]
 
 [node name="Cursor" parent="." instance=ExtResource("1_mgw5y")]
-scale = Vector2(0.05, 0.05)
+visible = false
