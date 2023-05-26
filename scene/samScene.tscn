@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_sv4px"]
 [ext_resource type="PackedScene" uid="uid://c81jqkjhumv0x" path="res://scene/Platform.tscn" id="2_igst7"]
-[ext_resource type="PackedScene" uid="uid://beknppsfrgvct" path="res://scene/Cursor.tscn" id="3_knjtg"]
+[ext_resource type="PackedScene" uid="uid://b8tfkx4yebvud" path="res://scene/Cursor.tscn" id="3_knjtg"]
 [ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="4_5oki3"]
 [ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="5_dg0ch"]
 

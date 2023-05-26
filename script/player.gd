@@ -12,6 +12,13 @@ var isJumping = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+func _physics_process(delta):
+	var boundaries = get_viewport_rect().size
+	if boundaries.y < global_position.y/2:
+		print_debug("killed by boundaries")
+		kill()
+	
+	
 	
 func move(delta, direction, jump):
 	

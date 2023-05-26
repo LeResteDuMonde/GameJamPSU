@@ -4,6 +4,7 @@ var speed : float = 0.01
 var amplitude : float = 100
 var direction : float = 1
 var zero
+var deleteNumber = 0
 func _ready():
 	zero = global_position;
 func _physics_process(delta):
@@ -15,4 +16,13 @@ func _physics_process(delta):
 	if deltax < -amplitude: 
 		direction = 1
 		
+	
 	move_and_collide(move)
+	
+func delete():
+	print_debug("delete the moving platform")
+	if deleteNumber=1:
+		queue_free()
+	else: 
+		deleteNumber=1
+		speed=0
