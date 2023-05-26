@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dam5idbeye8y3"]
+
+[ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_sv4px"]
+[ext_resource type="PackedScene" uid="uid://c81jqkjhumv0x" path="res://scene/Platform.tscn" id="2_igst7"]
+[ext_resource type="PackedScene" uid="uid://beknppsfrgvct" path="res://scene/Cursor.tscn" id="3_knjtg"]
+[ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="4_5oki3"]
+[ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="5_dg0ch"]
+
+[node name="samScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_sv4px")]
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="Platform5" parent="." instance=ExtResource("2_igst7")]
+position = Vector2(-392, 150)
+
+[node name="Platform4" parent="." instance=ExtResource("2_igst7")]
+position = Vector2(-523, 150)
+
+[node name="Platform3" parent="." instance=ExtResource("2_igst7")]
+position = Vector2(-261, 150)
+
+[node name="Platform2" parent="." instance=ExtResource("2_igst7")]
+position = Vector2(-130, 150)
+
+[node name="Platform" parent="." instance=ExtResource("2_igst7")]
+
+[node name="Cursor" parent="." instance=ExtResource("3_knjtg")]
+visible = false
+
+[node name="MoovingPlatform" parent="." instance=ExtResource("4_5oki3")]
+position = Vector2(339, 74)
+
+[node name="CagedMonster" parent="." instance=ExtResource("5_dg0ch")]
+position = Vector2(-452, 14)
