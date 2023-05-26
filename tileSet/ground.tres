@@ -1,0 +1,23 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://ornorphhiqrt"]
+
+[ext_resource type="Texture2D" uid="uid://c5ke2pn4kwj4" path="res://sprite/groundTile1.png" id="1_tgltl"]
+[ext_resource type="Texture2D" uid="uid://y5fwjdse6sdi" path="res://sprite/groundTile2.png" id="2_dwwd5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spi3t"]
+texture = ExtResource("1_tgltl")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mehao"]
+texture = ExtResource("2_dwwd5")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_spi3t")
+sources/1 = SubResource("TileSetAtlasSource_mehao")
