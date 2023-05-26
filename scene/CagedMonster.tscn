@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://script/deletableArea.gd" id="4_imqrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_472wj"]
-size = Vector2(113, 120)
+size = Vector2(63, 62)
 
 [node name="CagedMonster" type="CharacterBody2D" groups=["Monster"]]
 script = ExtResource("1_beoon")

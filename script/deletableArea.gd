@@ -11,21 +11,19 @@ func isCursor(area):
 	return area.get_node("../").name == "Cursor"
 	
 func onAreaEntered(area):
-	if isCursor(area):
+	if isCursor(area) && GameManager.isDeletePhase:
 		for g in object.get_groups():
-			print(g)
 			get_tree().call_group(g, "highlight")
 		isSelected = true
 
 func onAreaExited(area):
-	if isCursor(area):
+	if isCursor(area) && GameManager.isDeletePhase:
 		for g in object.get_groups():
 			get_tree().call_group(g, "unhighlight")
 		isSelected = false
 
 func _input(event):
-	if event.is_action_released("click") && isSelected:
-		print("click")
+	if event.is_action_released("click") && isSelected && GameManager.isDeletePhase:
 		for g in object.get_groups():
 			get_tree().call_group(g, "delete")
 		GameManager.switchToPlayPhase()

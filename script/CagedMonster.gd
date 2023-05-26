@@ -33,7 +33,15 @@ func _physics_process(delta):
 		if collision_event != null:
 			print_debug("collision")
 			if "kill" in collision_event.get_collider(): 
-				print_debug("kill")
+				GameManager.killPlayer()
+				
+func highlight():
+	if not isDeadly:
+		get_node("cage").modulate.a = 0.5
+	
+func unhighlight():
+	if not isDeadly:
+		get_node("cage").modulate.a = 1
 		
 func delete():
 	makeDeadly()

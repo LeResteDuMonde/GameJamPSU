@@ -8,7 +8,7 @@ func _ready():
 #	spawnCursor() # TODO remove
 
 func spawnCursor():
-#	print("spawn cursor")
+	print("spawn cursor")
 	cursor = cursorS.instantiate()
 	GameManager.main.add_child(cursor)
 

@@ -33,8 +33,8 @@ func move(delta, direction, jump):
 	move_and_slide()
 	
 func kill():
+	PlayerManager.respawnPlayer()
 	GameManager.killPlayer()
-	print_debug("kill the player")
 
 func jump(delta,jump):
 	if not is_on_floor():
