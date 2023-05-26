@@ -36,6 +36,7 @@ func _input(event):
 	if event.is_action_released("click") and title != null:
 		print("Hide Title Screen")
 		title.queue_free()
+		
 	
 func killPlayer():
 	if currPlayer == 1:
@@ -59,7 +60,15 @@ func win():
 var endS = preload("res://scene/EndScreen.tscn")
 
 func displayEndScreen(winner):
-	main.add_child(endS.instantiate())
+	var end = endS.instantiate()
+	main.add_child(end)
+	if winner == 1:
+		end.get_node("Player1").visible = true
+	elif winner == 2:
+		end.get_node("Player2").visible = true
+	else:
+		end.get_node("Death").visible = true
+		
 	
 func switchToDeletePhase():
 	print("Finishing Play Phase")
