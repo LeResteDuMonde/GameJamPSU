@@ -14,4 +14,4 @@ position = Vector2(2, -2)
 [node name="Platform" parent="." instance=ExtResource("2_kb0mr")]
 
 [node name="Cursor" parent="." instance=ExtResource("1_mgw5y")]
-visible = false
+scale = Vector2(0.05, 0.05)
