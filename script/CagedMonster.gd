@@ -10,10 +10,12 @@ var isDeadly = false
 func _ready():
 	zero = global_position;
 	#DEBUG
-	makeDeadly()
+	#makeDeadly()
 	
 func makeDeadly():#TODO connect to click
 	isDeadly = true
+	var cage  : Sprite2D = get_node("cage")
+	cage.queue_free()
 	#TODO change sprit to animated sprit
 
 func _physics_process(delta):
@@ -33,4 +35,6 @@ func _physics_process(delta):
 			if "kill" in collision_event.get_collider(): 
 				print_debug("kill")
 		
+func delete():
+	makeDeadly()
 #func _process(delta):
