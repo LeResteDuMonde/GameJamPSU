@@ -1,7 +1,6 @@
 extends Node
 
 var main
-var cursor
 var main_r = preload("res://scene/Main.tscn")
 var root
 var web 
@@ -17,7 +16,6 @@ func _ready():
 	if(OS.get_distribution_name() == ""): web = true
 	root = get_tree().root
 	main = root.get_node("Main")
-	cursor = main.get_node("Cursor")
 	
 	# Show Title Screen first
 	displayTitleScreen()

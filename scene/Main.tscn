@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://r2jg2qa78ljk"]
+[gd_scene load_steps=7 format=3 uid="uid://r2jg2qa78ljk"]
 
 [ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_5qlf1"]
-[ext_resource type="PackedScene" uid="uid://b8tfkx4yebvud" path="res://scene/Cursor.tscn" id="1_mgw5y"]
 [ext_resource type="PackedScene" uid="uid://c81jqkjhumv0x" path="res://scene/Platform.tscn" id="2_kb0mr"]
 [ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="5_x6sdr"]
 [ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="6_3gsa4"]
@@ -51,9 +50,6 @@ position = Vector2(-261, 150)
 position = Vector2(165, -244)
 
 [node name="Platform" parent="." instance=ExtResource("2_kb0mr")]
-
-[node name="Cursor" parent="." instance=ExtResource("1_mgw5y")]
-visible = false
 
 [node name="MoovingPlatform" parent="." instance=ExtResource("5_x6sdr")]
 visible = false
