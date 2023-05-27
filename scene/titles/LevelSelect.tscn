@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://iccte0re82wh"]
+[gd_scene load_steps=13 format=3 uid="uid://bolm236nihk52"]
 
 [ext_resource type="Texture2D" uid="uid://bx106kiw7r65u" path="res://sprite/levelMapScreen.png" id="1_gybvp"]
 [ext_resource type="Texture2D" uid="uid://bofg4udrskcki" path="res://sprite/iconeLevel1.png" id="2_upg6y"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bldj5n2c7xrlo" path="res://sprite/iconeLevel2.png" id="3_k7d4g"]
 [ext_resource type="Shader" path="res://shader/outline.gdshader" id="3_wgiwq"]
 [ext_resource type="Texture2D" uid="uid://dwx0pplqn8v7e" path="res://sprite/iconeLevel3.png" id="4_ygc05"]
-[ext_resource type="Texture2D" uid="uid://8tv826gmu0y8" path="res://sprite/iconeLevel4.png" id="5_1jdog"]
+[ext_resource type="Texture2D" uid="uid://duicaucecutil" path="res://sprite/lvl4.png" id="7_w2pwn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lucvo"]
 shader = ExtResource("3_wgiwq")
@@ -83,7 +83,7 @@ script = ExtResource("3_gh3bk")
 visible = false
 material = SubResource("ShaderMaterial_pcrfw")
 position = Vector2(2, -2)
-texture = ExtResource("5_1jdog")
+texture = ExtResource("7_w2pwn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level4"]
 position = Vector2(206, -87)

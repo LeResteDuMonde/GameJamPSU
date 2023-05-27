@@ -42,10 +42,9 @@ position = Vector2(257, -76)
 position = Vector2(-28, 24)
 
 [node name="MoovingPlatform2" parent="." instance=ExtResource("3_b8mys")]
-position = Vector2(242, 118)
+position = Vector2(232, 118)
 speed = 0.01
 angle = 90.0
 
 [node name="Sun" parent="." instance=ExtResource("8_lxotu")]
-z_index = -90
 position = Vector2(-198, -128)
