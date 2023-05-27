@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxando70wohj8"]
+[gd_scene load_steps=3 format=3 uid="uid://dxando70wohj8"]
 
+[ext_resource type="Script" path="res://script/deletable.gd" id="1_2bplp"]
 [ext_resource type="TileSet" uid="uid://ornorphhiqrt" path="res://tileSet/ground.tres" id="3_oksom"]
 
 [node name="Tiles" type="Node2D"]
+script = ExtResource("1_2bplp")
 
 [node name="Ground" type="TileMap" parent="."]
 tile_set = ExtResource("3_oksom")

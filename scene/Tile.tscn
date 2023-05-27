@@ -13,7 +13,7 @@ script = ExtResource("1_xwdvg")
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("3_wnknv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["groundTile"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_hjywy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
