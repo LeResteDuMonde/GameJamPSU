@@ -43,6 +43,9 @@ func unhighlight():
 	if not isDeadly:
 		get_node("cage").modulate.a = 1
 		
+func respawn():
+	position = zero
+		
 func delete():
 	makeDeadly()
 #func _process(delta):

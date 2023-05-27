@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://script/starship.gd" id="2_oj7pe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s51xt"]
-size = Vector2(43, 66)
+size = Vector2(18, 27)
 
 [node name="StarShip" type="Node2D"]
 
@@ -15,5 +15,5 @@ texture = ExtResource("1_kyx64")
 script = ExtResource("2_oj7pe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.5, 0)
+position = Vector2(0, 19.5)
 shape = SubResource("RectangleShape2D_s51xt")

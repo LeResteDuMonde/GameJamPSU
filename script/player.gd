@@ -33,7 +33,7 @@ func move(delta, direction, jump):
 	move_and_slide()
 	
 func kill():
-	PlayerManager.respawnPlayer()
+#	PlayerManager.respawnPlayer()
 	GameManager.killPlayer()
 
 func jump(delta,jump):
@@ -58,3 +58,4 @@ func analogicJump(delta,jump):
 
 func applyGravity(delta):
 	velocity.y += gravity * delta
+	

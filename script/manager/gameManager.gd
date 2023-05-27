@@ -7,6 +7,7 @@ var root
 var web 
 
 var isDeletePhase = false
+var isPlayPhase = false
 var player1Alive = true
 var player2Alive = true
 var currPlayer = 2
@@ -36,7 +37,7 @@ func _input(event):
 	if event.is_action_released("click") and title != null:
 		print("Hide Title Screen")
 		title.queue_free()
-		
+		switchToPlayPhase()
 	
 func killPlayer():
 	if currPlayer == 1:
@@ -47,10 +48,10 @@ func killPlayer():
 	if not player1Alive and not player2Alive:
 		displayEndScreen(0)
 	else:
+		PlayerManager.respawnPlayer()
 		switchToPlayPhase()
 	
 func win():
-	PlayerManager.respawnPlayer()
 	if not player1Alive:
 		displayEndScreen(2)
 	elif not player2Alive:
@@ -73,6 +74,7 @@ func displayEndScreen(winner):
 	
 func switchToDeletePhase():
 	print("Finishing Play Phase")
+	isPlayPhase = false
 #	PlayerManager.deletePlayer()
 	
 	print("Entering Delete Phase")
@@ -84,8 +86,12 @@ func switchToPlayPhase():
 	isDeletePhase = false
 	CursorManager.deleteCursor()
 
+	print("Starting Play Phase for Player", currPlayer)
 	if currPlayer == 1:
 		currPlayer = 2
 	elif currPlayer == 2:
 		currPlayer = 1
-	print("Starting Play Phase for Player", currPlayer)
+	PlayerManager.respawnPlayer()
+	PlayerManager.setPlayer(currPlayer)
+	GameManager.main.get_node("CagedMonster").respawn()
+	isPlayPhase = true

@@ -13,6 +13,6 @@ func spawnCursor():
 	GameManager.main.add_child(cursor)
 
 func deleteCursor():
-#	print("del cursor")
+	print("del cursor")
 	if cursor != null:
 		cursor.queue_free()

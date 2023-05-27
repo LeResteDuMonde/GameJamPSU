@@ -11,8 +11,30 @@
 [node name="Main" type="Node2D"]
 position = Vector2(2, -2)
 
-[node name="Player" parent="." instance=ExtResource("1_5qlf1")]
-position = Vector2(0, -32)
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="Tile8" parent="Tiles" instance=ExtResource("7_siwmh")]
+position = Vector2(40, 22)
+
+[node name="Tile" parent="Tiles" instance=ExtResource("7_siwmh")]
+
+[node name="Tile2" parent="Tiles" instance=ExtResource("7_siwmh")]
+position = Vector2(16, 3)
+
+[node name="Tile3" parent="Tiles" instance=ExtResource("7_siwmh")]
+position = Vector2(32, 6)
+
+[node name="Tile4" parent="Tiles" instance=ExtResource("7_siwmh")]
+position = Vector2(72, 24)
+
+[node name="Tile5" parent="Tiles" instance=ExtResource("7_siwmh")]
+position = Vector2(88, 24)
+
+[node name="Tile6" parent="Tiles" instance=ExtResource("7_siwmh")]
+position = Vector2(104, 24)
+
+[node name="Tile7" parent="Tiles" instance=ExtResource("7_siwmh")]
+position = Vector2(56, 18)
 
 [node name="Camera" type="Camera2D" parent="."]
 
@@ -38,32 +60,10 @@ visible = false
 position = Vector2(339, 74)
 
 [node name="CagedMonster" parent="." instance=ExtResource("6_3gsa4")]
-position = Vector2(-73, -19)
+position = Vector2(-254, -41)
 
 [node name="StarShip" parent="." instance=ExtResource("7_l1aai")]
 position = Vector2(88, -17)
 
-[node name="Tiles" type="Node2D" parent="."]
-
-[node name="Tile8" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(40, 22)
-
-[node name="Tile" parent="Tiles" instance=ExtResource("7_siwmh")]
-
-[node name="Tile2" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(16, 3)
-
-[node name="Tile3" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(32, 6)
-
-[node name="Tile4" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(72, 24)
-
-[node name="Tile5" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(88, 24)
-
-[node name="Tile6" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(104, 24)
-
-[node name="Tile7" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(56, 18)
+[node name="Player" parent="." instance=ExtResource("1_5qlf1")]
+position = Vector2(0, -32)
