@@ -6,8 +6,9 @@ var level
 var playerInitialPos
 
 func spawnPlayer(lev):
+	print(lev)
 	level = lev
-	playerInitialPos = level.get_node("PlayerSpawn").position 
+#	playerInitialPos = level.get_node("PlayerSpawn").position 
 #	GameManager.main.get_node("Level/PlayerSpawn").position
 	respawnPlayer()
 	
@@ -16,7 +17,7 @@ func movePlayer(delta,direction,jump):
 		player.move(delta,direction,jump)
 
 func respawnPlayer():
-	print(playerInitialPos)
+	playerInitialPos = level.get_node("PlayerSpawn").position 
 	player.position = playerInitialPos
 	player.velocity = Vector2.ZERO
 #	player = playerS.instantiate()

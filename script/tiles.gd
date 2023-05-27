@@ -2,7 +2,7 @@ extends Node
 
 #@export var tileMap : Resource
 var levelID = 1
-var path = "res://tileMap/level" + str(levelID) + ".txt"
+var path
 var tileR = preload("res://scene/Tile.tscn")
 var ceiling = preload("res://sprite/groundTile1.png")
 var sand = preload("res://sprite/sandTile1.png")
@@ -12,7 +12,11 @@ const WIDTH = 42
 const HEIGHT = 23
 const SIZE = 16
 
-func _ready():
+#func ready():
+#	loadTiles()
+	
+func loadTiles():
+	path = "res://tileMap/level" + str(levelID) + ".txt"
 	var tileMap = loadFile(path)
 	print(tileMap.length())
 #	print(tileMap[WIDTH*HEIGHT])
@@ -39,8 +43,6 @@ func _ready():
 					elif(tileID == "C") : setTex(t,ceiling)		
 				add_child(t)
 				t.global_position = pos
-		
-	pass # Replace with function body.
 
 func setTex(t,tex, flip = false):
 	var sprite = t.get_node("Sprite2D")

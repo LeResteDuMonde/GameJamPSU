@@ -20,10 +20,12 @@ func onAreaExited(area):
 
 var level1 = preload("res://scene/Level1.tscn")
 
-func loadLevel(level):
-	GameManager.startGame(level.instantiate())
+var level2 = preload("res://scene/Level2.tscn")
+func loadLevel(level,levelID):
+	GameManager.startGame(level.instantiate(),levelID)
 
 
 func _input(event):
 	if event.is_action_pressed("click") && selected && TitleManager.levelSelectScreen.visible:
-		if name == "Level1": loadLevel(level1)
+		if name == "Level1": loadLevel(level1,1)
+		elif name == "Level2": loadLevel(level2,2)
