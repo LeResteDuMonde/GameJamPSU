@@ -139,6 +139,8 @@ func switchToPlayPhase():
 	get_tree().call_group("Monster", "resumeMonster")
 	isPlayPhase = true
 	
+	startTimer()
+	
 	
 func startTimer():
 	print("reset timer")

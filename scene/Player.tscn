@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://3n3atoqehe5u"]
+[gd_scene load_steps=15 format=3 uid="uid://3n3atoqehe5u"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_mceob"]
 [ext_resource type="SpriteFrames" uid="uid://tl85fq14y76s" path="res://animation/player1.tres" id="2_x6hji"]
 [ext_resource type="SpriteFrames" uid="uid://d3fhtgen6qju1" path="res://animation/bootsFlame.tres" id="4_pk4dr"]
 [ext_resource type="Texture2D" uid="uid://bqodcy5pq11u6" path="res://sprite/pointLight.webp" id="5_bd42t"]
+[ext_resource type="Texture2D" uid="uid://bmqmhjshp4he1" path="res://sprite/explosion/oxygenExplosion1.png" id="5_speek"]
+[ext_resource type="Texture2D" uid="uid://dseaamrkm01q6" path="res://sprite/explosion/oxygenExplosion2.png" id="6_hv4tw"]
+[ext_resource type="Texture2D" uid="uid://dr4qjpgfcrmbn" path="res://sprite/explosion/oxygenExplosion3.png" id="7_qrrkj"]
+[ext_resource type="Texture2D" uid="uid://wnka4rwqty7s" path="res://sprite/explosion/oxygenExplosion4.png" id="8_mtmbi"]
+[ext_resource type="Texture2D" uid="uid://m8ok80v8yl5d" path="res://sprite/explosion/oxygenExplosion5.png" id="9_deifc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dxre"]
 size = Vector2(20, 32)
@@ -46,6 +51,29 @@ size = Vector2(19, 25.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8880"]
 size = Vector2(21.5, 9)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwml5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_speek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hv4tw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qrrkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mtmbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_deifc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["boots", "oxygene"]]
 script = ExtResource("1_mceob")
 
@@ -79,6 +107,12 @@ sprite_frames = ExtResource("4_pk4dr")
 sprite_frames = ExtResource("2_x6hji")
 animation = &"highlightOxygen"
 
+[node name="oxygene" type="AnimatedSprite2D" parent="Sprites"]
+position = Vector2(-15.041, -5.709)
+sprite_frames = SubResource("SpriteFrames_nwml5")
+frame_progress = 0.64099
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-16, -12)
 color = Color(1, 0.588235, 0, 0.494118)
 texture = ExtResource("5_bd42t")

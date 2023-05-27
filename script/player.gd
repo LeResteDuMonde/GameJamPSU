@@ -85,8 +85,13 @@ func delete(g):
 	if g=="oxygene":
 		GameManager.startTimer()
 		GameManager.timeEnable = true
+		var anim = get_node("Sprites/oxygene")
+		anim.play("default")
+		get_node("oxigene").queue_free()
+		anim.show()
 	if g=="boots":
 		jumpIsAnalogic = false
+		get_node("boots").queue_free()
 	
 func highlight(g):
 	if g=="oxygene":
