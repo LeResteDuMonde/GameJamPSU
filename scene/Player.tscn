@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://3n3atoqehe5u"]
+[gd_scene load_steps=8 format=3 uid="uid://3n3atoqehe5u"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_mceob"]
-[ext_resource type="Texture2D" uid="uid://bv5m0xdfeeagp" path="res://sprite/spritePlayer1.png" id="2_mscmd"]
+[ext_resource type="SpriteFrames" uid="uid://tl85fq14y76s" path="res://animation/player1.tres" id="2_x6hji"]
 [ext_resource type="Script" path="res://script/deletableArea.gd" id="3_r48kp"]
+[ext_resource type="SpriteFrames" uid="uid://d3fhtgen6qju1" path="res://animation/bootsFlame.tres" id="4_pk4dr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dxre"]
 size = Vector2(20, 32)
@@ -18,9 +19,6 @@ script = ExtResource("1_mceob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2dxre")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_mscmd")
 
 [node name="oxigene" type="Node2D" parent="." groups=["oxygene"]]
 
@@ -39,3 +37,12 @@ script = ExtResource("3_r48kp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boots/Area2D"]
 position = Vector2(5, 14.5)
 shape = SubResource("RectangleShape2D_i8880")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Flame" type="AnimatedSprite2D" parent="Sprites"]
+position = Vector2(5, 18)
+sprite_frames = ExtResource("4_pk4dr")
+
+[node name="Body" type="AnimatedSprite2D" parent="Sprites"]
+sprite_frames = ExtResource("2_x6hji")

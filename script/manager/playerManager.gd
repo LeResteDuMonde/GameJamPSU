@@ -18,11 +18,11 @@ func respawnPlayer():
 #	player = playerS.instantiate()
 #	GameManager.main.add_child(player)
 
-var player1Sprite = preload("res://sprite/spritePlayer1.png")
-var player2Sprite = preload("res://sprite/spritePlayer2.png")
+var player1 = preload("res://animation/player1.tres")
+var player2 = preload("res://animation/player2.tres")
 
 func setPlayer(nb):
 	if nb == 1:
-		player.get_node("Sprite2D").set_texture(player1Sprite)
+		player.get_node("Sprites/Body").sprite_frames = player1
 	elif nb == 2:
-		player.get_node("Sprite2D").set_texture(player2Sprite)
+		player.get_node("Sprites/Body").sprite_frames = player2

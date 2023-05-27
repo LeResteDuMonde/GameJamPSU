@@ -10,8 +10,11 @@ var jumpTimer = 0
 
 var isJumping = true
 
-@onready var bootsFlame = $BootsFlame
+var landed = false
 
+@onready var bootsFlame = $Sprites/Flame
+@onready var sprite = $Sprites/Body
+@onready var sprites = $Sprites
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
@@ -22,12 +25,21 @@ func _physics_process(delta):
 	
 func move(delta, direction, jump):
 	
+	if (is_on_floor() and (not landed)):
+#		sprite.play("landing")
+		landed = true
+	else : landed = is_on_floor()
+	
 	if(jumpIsAnalogic) : analogicJump(delta,jump)
 	else : jump(delta,jump)
 	
 	if direction:
+		if is_on_floor(): sprite.play("walking")
+		else : sprite.play("default")
 		velocity.x = direction * SPEED
+		sprites.scale.x = 1 if direction > 0 else -1
 	else:
+		sprite.play("default")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
