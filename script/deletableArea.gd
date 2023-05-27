@@ -34,7 +34,6 @@ func _input(event):
 	if event.is_action_released("click") && isSelected && GameManager.isDeletePhase:
 	#	print_debug("click")
 		for g in object.get_groups():
-			#print_debug("")
 	#		print_debug("click groupe %s"%g)
 			if g != "_physics_process":
 			#	print_debug(get_tree().get_first_node_in_group(g).delete(g))

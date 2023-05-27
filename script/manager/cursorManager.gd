@@ -8,11 +8,11 @@ func _ready():
 #	spawnCursor() # TODO remove
 
 func spawnCursor():
-	print("spawn cursor")
-	cursor = cursorS.instantiate()
-	GameManager.main.add_child(cursor)
+	if cursor == null:
+		cursor = cursorS.instantiate()
+		GameManager.main.add_child(cursor)
 
 func deleteCursor():
-	print("del cursor")
 	if cursor != null:
+		GameManager.main.remove_child(cursor)	
 		cursor.queue_free()
