@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cynnhg3g3msry"]
+
+[ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="1_j2c3k"]
+[ext_resource type="Script" path="res://script/tiles.gd" id="2_3xr07"]
+[ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="3_3o7hl"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+texture = ExtResource("1_j2c3k")
+
+[node name="Tiles" type="Node2D" parent="."]
+script = ExtResource("2_3xr07")
+
+[node name="StarShip" parent="." instance=ExtResource("3_3o7hl")]
+position = Vector2(283, -106)
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2(-283, 13)
