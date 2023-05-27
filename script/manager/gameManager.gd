@@ -113,6 +113,7 @@ func switchPlayer():
 	PlayerManager.setPlayer(currPlayer)
 	
 func switchToDeletePhase():
+	get_tree().call_group("Monster", "pauseMonster")
 	print("Finishing Play Phase")
 	switchPlayer()
 	isPlayPhase = false
@@ -129,6 +130,7 @@ func switchToPlayPhase():
 	
 	print("Starting Play Phase for Player", currPlayer)
 	get_tree().call_group("Monster", "respawn")
+	get_tree().call_group("Monster", "resumeMonster")
 	isPlayPhase = true
 	
 	

@@ -50,4 +50,12 @@ func respawn():
 func delete(g):
 	unhighlight(g)
 	makeDeadly()
+	
+func pauseMonster():
+	print_debug("paused monster")
+	direction=0
+	
+func resumeMonster():
+	print_debug("res")
+	direction=1
 #func _process(delta):
