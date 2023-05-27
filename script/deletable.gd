@@ -11,5 +11,6 @@ func unhighlight(g):
 		high.visible = false
 
 func delete(g):
+	print(g)
 #	print_debug("delete")
 	queue_free()

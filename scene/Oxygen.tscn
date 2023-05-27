@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc36jfy1dhbcg"]
+
+[ext_resource type="Texture2D" uid="uid://dkqwvqfp3bgo6" path="res://sprite/oxygenIcone.png" id="1_i33na"]
+[ext_resource type="Script" path="res://script/deletable.gd" id="2_mjasy"]
+[ext_resource type="Shader" path="res://shader/outline.gdshader" id="3_vn6bd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6hssw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8wu5n"]
+shader = ExtResource("3_vn6bd")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 1.5
+
+[node name="oxygen" type="Node2D" groups=["oxygene"]]
+position = Vector2(270, -163)
+script = ExtResource("2_mjasy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_6hssw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i33na")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_8wu5n")
+texture = ExtResource("1_i33na")

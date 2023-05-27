@@ -11,13 +11,13 @@ func onAreaEntered(area):
 	if GameManager.isDeletePhase:
 		selected = area.get_node("..")
 		for g in selected.get_groups():
-			if g != "_physics_process":
+			if g != "_physics_process" and not 'root_canvas'.is_subsequence_of(g):
 				get_tree().call_group(g, "highlight", g)
 
 func unhighlightAll():
 	if selected != null:
 		for g in selected.get_groups():
-			if g != "_physics_process":
+			if g != "_physics_process" and not 'root_canvas'.is_subsequence_of(g):
 				get_tree().call_group(g, "unhighlight", g)
 
 func onAreaExited(area):
@@ -28,7 +28,7 @@ func _input(event):
 	if event.is_action_pressed("click") && selected != null && GameManager.isDeletePhase:
 		var deletedSomething = false
 		for g in selected.get_groups():
-			if g != "_physics_process":
+			if g != "_physics_process" and not 'root_canvas'.is_subsequence_of(g):
 				print_debug("groupe %s is called to be deleted" % g)
 				get_tree().call_group(g, "delete",g)
 				deletedSomething = true

@@ -1,6 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcdhxxpw0lxee"]
+[gd_scene load_steps=12 format=3 uid="uid://dcdhxxpw0lxee"]
 
 [ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_5qlf1"]
+[ext_resource type="PackedScene" uid="uid://yifq3r7f674j" path="res://scene/Boots.tscn" id="3_s88va"]
+[ext_resource type="PackedScene" uid="uid://bc36jfy1dhbcg" path="res://scene/Oxygen.tscn" id="4_v4o6b"]
 [ext_resource type="PackedScene" uid="uid://bxsl1oxcjehbv" path="res://scene/titles/TitleScreen.tscn" id="5_7l5dp"]
 [ext_resource type="PackedScene" uid="uid://buo02u4mru6o0" path="res://scene/titles/ControlScreen.tscn" id="6_ybmoa"]
 [ext_resource type="PackedScene" uid="uid://dpejnty4ev0y" path="res://scene/titles/DestroyScreen.tscn" id="7_uf452"]
@@ -27,6 +29,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
+
+[node name="boots" parent="UI" instance=ExtResource("3_s88va")]
+
+[node name="oxygen" parent="UI" instance=ExtResource("4_v4o6b")]
 
 [node name="OxygenLabel" type="Label" parent="UI"]
 visible = false
