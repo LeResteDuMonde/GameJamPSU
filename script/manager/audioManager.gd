@@ -17,17 +17,17 @@ func _ready():
 func _process(delta):
 	if(crossFadeTimer > FADER_TIME and music.volume_db < 0) : 
 		music.volume_db += delta * FADER_SPEED
-		print(music.volume_db)
+#		print(music.volume_db)
 		ambience.volume_db -= delta * FADER_SPEED / 50
 	else:
 		crossFadeTimer += delta
 	
-func play(clip_name, count = 0):
+func play(clip_name, count = 1, time = 0,db = 1):
 	var s = soundR.instantiate()
 	add_child(s)
 	
 	var clip
-	if(count > 0):
+	if(count > 1):
 		var clips = []
 		for i in range(count):
 			clips.append("res://audio/" + clip_name + str(i+1) + ".wav")
@@ -36,7 +36,8 @@ func play(clip_name, count = 0):
 		clip = "res://audio/" + clip_name + ".wav"
 	
 #	print(clip)
-	s.play_clip(clip)
+	s.play_clip(clip, time)
+	s.volume_db = db
 	
 	return s
 	

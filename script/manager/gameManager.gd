@@ -86,6 +86,7 @@ func _input(event):
 	
 func killPlayer():
 	if isPlayPhase:
+#		AudioManager.play("death")
 		if currPlayer == 1:
 			print("Killed Player 1")
 			player1Alive = false
@@ -163,6 +164,7 @@ func endDeletePhase():
 	
 func startPlayPhase():
 	print("Starting Play Phase for Player", currPlayer)
+	AudioManager.play("getToTheBase")
 	get_tree().call_group("Monster", "respawn")
 	get_tree().call_group("Monster", "resumeMonster")
 	isPlayPhase = true

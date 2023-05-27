@@ -63,12 +63,14 @@ func jump(delta,jump):
 	if not is_on_floor():
 		applyGravity(delta)
 	elif jump:
+		AudioManager.play("jump",1,0,3)
 		velocity.y = JUMP_VELOCITY
 		
 func analogicJump(delta,jump):
 	if not is_on_floor():
 		jumpTimer -= delta
 	elif jump:
+		AudioManager.play("fireReactor",1,0.7,0.9)
 		jumpTimer = jumpTime
 
 	if not jump:

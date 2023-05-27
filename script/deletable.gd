@@ -12,5 +12,4 @@ func unhighlight(g):
 
 func delete(g):
 #	print_debug("delete")
-#	AudioManager.play("clic")
 	queue_free()

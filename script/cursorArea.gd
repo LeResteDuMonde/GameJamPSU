@@ -32,7 +32,7 @@ func _input(event):
 				print_debug("groupe %s is called to be deleted" % g)
 				get_tree().call_group(g, "delete",g)
 				deletedSomething = true
-				
+				AudioManager.play("clic",1,0,1.5)
 		if deletedSomething:
 			unhighlightAll()
 			await get_tree().create_timer(.1).timeout
