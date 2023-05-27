@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpejnty4ev0y"]
+
+[ext_resource type="Texture2D" uid="uid://dqnhu0ynsopsi" path="res://sprite/destructionTime.png" id="1_20dj5"]
+
+[node name="TitleScreen2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+texture = ExtResource("1_20dj5")

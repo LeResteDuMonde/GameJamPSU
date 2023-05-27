@@ -1,10 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgjnbfc3cf3l1"]
 
-[ext_resource type="Texture2D" uid="uid://f8ia7xygxd1e" path="res://sprite/interstice1.png" id="1_x156h"]
+[ext_resource type="Texture2D" uid="uid://bbdck5ip3mecq" path="res://sprite/player1Switch.png" id="1_huv0u"]
 
 [node name="Player1Interstice" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 284
-position = Vector2(629, 348)
-texture = ExtResource("1_x156h")
+texture = ExtResource("1_huv0u")

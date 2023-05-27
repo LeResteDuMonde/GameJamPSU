@@ -43,13 +43,21 @@ func _process(delta):
 func quit():
 	get_tree().quit()
 	
-var titleS = preload("res://scene/TitleScreen.tscn")
+var titleS = preload("res://scene/titles/TitleScreen.tscn")
 var title
+
+var destructScreenS = preload("res://scene/titles/DestroyScreen.tscn")
+var destructScreen
 
 func displayTitleScreen():
 	print("Show Title Screen")
 	title = titleS.instantiate()
 	main.get_node("UI").add_child(title)
+	
+func displayDestructScreen():
+	print("Show Destruct Screen")
+	destructScreen = destructScreenS.instantiate()
+	main.get_node("UI").add_child(destructScreen)
 	
 func hideTitleScreen():
 	if title!=null:
@@ -62,11 +70,19 @@ func hideTitleScreen():
 		main.get_node("UI").remove_child(interstice)
 		interstice.queue_free()
 		interstice = null
+	if destructScreen!=null:
+		print("Hide destruct screen")
+		main.get_node("UI").remove_child(destructScreen)
+		destructScreen.queue_free()
+		destructScreen = null
 			
 func _input(event):
 	if event.is_action_pressed("click") and (title != null or interstice != null):
 		hideTitleScreen()
 		startPlayPhase()
+	elif event.is_action_pressed("click") and (destructScreen != null):
+		hideTitleScreen()
+		startDeletePhase()
 	
 func killPlayer():
 	if isPlayPhase:
@@ -85,15 +101,15 @@ func killPlayer():
 			displayIntersticeScreen()
 	
 func win():
+	endPlayPhase()	
 	if not player1Alive:
 		displayEndScreen(2)
 	elif not player2Alive:
 		displayEndScreen(1)
 	else:
-		endPlayPhase()
-		startDeletePhase()
+		displayDestructScreen()
 	
-var endS = preload("res://scene/EndScreen.tscn")
+var endS = preload("res://scene/titles/EndScreen.tscn")
 func displayEndScreen(winner):
 	
 	var end = endS.instantiate()
@@ -105,8 +121,8 @@ func displayEndScreen(winner):
 	else:
 		end.get_node("Death").visible = true
 	
-var player1Interstice = load("res://scene/interstice/Player1Interstice.tscn")
-var player2Interstice = load("res://scene/interstice/Player2Interstice.tscn")
+var player1Interstice = load("res://scene/titles/Player1Interstice.tscn")
+var player2Interstice = load("res://scene/titles/Player2Interstice.tscn")
 var interstice = null
 
 func displayIntersticeScreen():

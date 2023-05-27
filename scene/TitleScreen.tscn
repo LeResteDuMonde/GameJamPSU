@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxsl1oxcjehbv"]
-
-[ext_resource type="Texture2D" uid="uid://cn63o0jxqp2qb" path="res://sprite/titleScreen.png" id="1_1ekxo"]
-
-[node name="TitleScreen" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1ekxo")

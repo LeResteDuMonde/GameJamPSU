@@ -25,7 +25,7 @@ func onAreaExited(area):
 	selected = null
 
 func _input(event):
-	if event.is_action_released("click") && selected != null && GameManager.isDeletePhase:
+	if event.is_action_pressed("click") && selected != null && GameManager.isDeletePhase:
 		var deletedSomething = false
 		for g in selected.get_groups():
 			if g != "_physics_process":
@@ -35,4 +35,5 @@ func _input(event):
 				
 		if deletedSomething:
 			unhighlightAll()
+			await get_tree().create_timer(.1).timeout
 			GameManager.endDeletePhase()
