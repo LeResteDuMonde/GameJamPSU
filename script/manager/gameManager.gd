@@ -68,19 +68,20 @@ func _input(event):
 		startPlayPhase()
 	
 func killPlayer():
-	if currPlayer == 1:
-		print("Killed Player 1")
-		player1Alive = false
-	elif currPlayer == 2:
-		print("Killed Player 2")
-		player2Alive = false
-		
-	if not player1Alive and not player2Alive:
-		displayEndScreen(0)
-	else:
-		switchPlayer()
-		PlayerManager.respawnPlayer()
-		displayIntersticeScreen()
+	if isPlayPhase:
+		if currPlayer == 1:
+			print("Killed Player 1")
+			player1Alive = false
+		elif currPlayer == 2:
+			print("Killed Player 2")
+			player2Alive = false
+			
+		if not player1Alive and not player2Alive:
+			displayEndScreen(0)
+		else:
+			switchPlayer()
+			PlayerManager.respawnPlayer()
+			displayIntersticeScreen()
 	
 func win():
 	if not player1Alive:

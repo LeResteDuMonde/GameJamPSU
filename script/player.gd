@@ -49,6 +49,9 @@ func move(delta, direction, jump):
 		#print_debug(collider.name)
 		if collider.name == "StarShip":
 			GameManager.win()
+		elif collider.name == "CagedMonster":
+			if collider.isDeadly:
+				GameManager.killPlayer()
 	
 func kill():
 #	PlayerManager.respawnPlayer()

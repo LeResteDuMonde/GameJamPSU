@@ -4,6 +4,7 @@ var speed : float = 0.01
 var amplitude : float = 100
 var direction : float = 1
 var zero
+var gravityScale = 100
 
 var isDeadly = false
 
@@ -29,12 +30,24 @@ func _physics_process(delta):
 		if deltax < -amplitude: 
 			direction = 1
 	
-		var collision_event = move_and_collide(move)
+		move.y += gravityScale * delta
+		var collision_event = move_and_collide(move,false,0.08,true)
 		
 		if collision_event != null:
-			print_debug("collision")
-			if "kill" in collision_event.get_collider(): 
-				GameManager.killPlayer()
+			var normal = collision_event.get_normal()
+			print_debug(normal,collision_event.get_collider().name)
+			if abs(normal.x) < abs(normal.y):
+				move.y=-0.01
+			#if "kill" in collision_event.get_collider(): 
+			#	GameManager.killPlayer()
+			
+			collision_event = move_and_collide(move)
+				
+			if collision_event != null:
+				normal = collision_event.get_normal()
+				print_debug(normal,collision_event.get_collider().name)
+				if abs(normal.x) > abs(normal.y):
+					direction*=-1
 				
 func highlight(g):
 	if not isDeadly:
