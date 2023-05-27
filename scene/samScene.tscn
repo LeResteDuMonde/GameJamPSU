@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b8tfkx4yebvud" path="res://scene/Cursor.tscn" id="3_knjtg"]
 [ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="4_5oki3"]
 [ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="5_dg0ch"]
-[ext_resource type="PackedScene" path="res://scene/Tiles.tscn" id="6_cmcnu"]
+[ext_resource type="PackedScene" uid="uid://dxando70wohj8" path="res://scene/Tiles.tscn" id="6_cmcnu"]
 
 [node name="samScene" type="Node2D"]
 

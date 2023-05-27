@@ -16,13 +16,15 @@ func onAreaEntered(area):
 	#	print_debug("area entered")
 	if isCursor(area) && GameManager.isDeletePhase:
 		for g in object.get_groups():
-			get_tree().call_group(g, "highlight")
+			if g != "_physics_process":
+				get_tree().call_group(g, "highlight")
 		isSelected = true
 
 func onAreaExited(area):
 	if isCursor(area) && GameManager.isDeletePhase:
 		for g in object.get_groups():
-			get_tree().call_group(g, "unhighlight")
+			if g != "_physics_process":
+				get_tree().call_group(g, "unhighlight")
 		isSelected = false
 
 func _input(event):
@@ -32,9 +34,11 @@ func _input(event):
 	if event.is_action_released("click") && isSelected && GameManager.isDeletePhase:
 	#	print_debug("click")
 		for g in object.get_groups():
+			#print_debug("")
 	#		print_debug("click groupe %s"%g)
-	#		if g != "_physics_process":
-				print_debug("groupe %s is called to be deleted" % g)
+			if g != "_physics_process":
+			#	print_debug(get_tree().get_first_node_in_group(g).delete(g))
+			#	print_debug("groupe %s is called to be deleted" % g)
 				get_tree().call_group(g, "delete",g)
 		GameManager.switchToPlayPhase()
 

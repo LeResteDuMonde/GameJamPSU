@@ -10,7 +10,11 @@ var isPlayPhase = false
 var player1Alive = true
 var player2Alive = true
 var currPlayer = 1
+
+#dying of oxigene
 var timeEnable = false
+var timeStamp = 0
+var timeToDeath = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

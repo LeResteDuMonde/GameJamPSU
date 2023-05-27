@@ -6,7 +6,7 @@ func highlight():
 func unhighlight():
 	modulate.a = 1
 
-func delete():
-#	print("delete")
+func delete(g):
+	print_debug("delete")
 #	AudioManager.play("clic")
 	queue_free()
