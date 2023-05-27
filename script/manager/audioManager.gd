@@ -1,9 +1,16 @@
 extends Node
 
-var sound_r = preload("res://scene/Sound.tscn")
-
+var soundR = preload("res://scene/Sound.tscn")
+var crossFader
+func _ready():
+#	var music = play("music/music1")
+#	var ambience = play("spaceAthmosphere")
+	crossFader = GameManager.main.get_node("BackgroundMusic")
+#	print(crossFader)
+#	crossFader.crossfade()
+	
 func play(clip_name, count = 0):
-	var s = sound_r.instantiate()
+	var s = soundR.instantiate()
 	add_child(s)
 	
 	var clip
@@ -17,6 +24,8 @@ func play(clip_name, count = 0):
 	
 #	print(clip)
 	s.play_clip(clip)
+	
+	return s
 	
 func clear():
 	for n in get_children():

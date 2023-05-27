@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxando70wohj8"]
+[gd_scene load_steps=3 format=3 uid="uid://ba3loxnu3yw45"]
 
 [ext_resource type="Script" path="res://script/deletable.gd" id="1_2bplp"]
 [ext_resource type="TileSet" uid="uid://ornorphhiqrt" path="res://tileSet/ground.tres" id="3_oksom"]

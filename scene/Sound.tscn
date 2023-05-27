@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpovhhlqo06xb"]
 
-[ext_resource type="Script" path="res://script/deletable.gd" id="1_ms03y"]
+[ext_resource type="Script" path="res://script/sound.gd" id="1_q8hb5"]
 
 [node name="Sound" type="AudioStreamPlayer"]
-script = ExtResource("1_ms03y")
+script = ExtResource("1_q8hb5")
