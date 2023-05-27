@@ -1,20 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8tfkx4yebvud"]
+[gd_scene load_steps=5 format=3 uid="uid://b8tfkx4yebvud"]
 
 [ext_resource type="Script" path="res://script/cursor.gd" id="1_7n3nm"]
-[ext_resource type="Texture2D" uid="uid://ca7bcubed76bo" path="res://sprite/cursor.png" id="2_p1oyv"]
+[ext_resource type="Texture2D" uid="uid://dh81wmabyepc6" path="res://sprite/pointer.png" id="2_1ictm"]
+[ext_resource type="Texture2D" uid="uid://bqodcy5pq11u6" path="res://sprite/pointLight.webp" id="3_va3o6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfjvf"]
-size = Vector2(9, 15.25)
+size = Vector2(12, 12)
 
 [node name="Cursor" type="Node2D"]
 script = ExtResource("1_7n3nm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("2_p1oyv")
+position = Vector2(2, 2)
+texture = ExtResource("2_1ictm")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.5, 0.375)
+light_mask = 512
+position = Vector2(-6, -6)
 shape = SubResource("RectangleShape2D_pfjvf")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 1, 1, 1)
+energy = 0.5
+texture = ExtResource("3_va3o6")
+texture_scale = 0.7

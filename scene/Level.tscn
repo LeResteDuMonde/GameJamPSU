@@ -1,8 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcap0fd4yk14k"]
+[gd_scene load_steps=6 format=3 uid="uid://dcap0fd4yk14k"]
 
+[ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="1_gsw35"]
 [ext_resource type="Script" path="res://script/tiles.gd" id="1_tuho5"]
+[ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="2_0laq4"]
+[ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="4_pbh4t"]
+[ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="5_r73mh"]
 
 [node name="Level" type="Node2D"]
 
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+texture = ExtResource("1_gsw35")
+
 [node name="Tiles" type="Node2D" parent="."]
 script = ExtResource("1_tuho5")
+
+[node name="MoovingPlatform" parent="." instance=ExtResource("2_0laq4")]
+
+[node name="CagedMonster" parent="." instance=ExtResource("4_pbh4t")]
+position = Vector2(-215, -79)
+
+[node name="StarShip" parent="." instance=ExtResource("5_r73mh")]
+position = Vector2(217, -32)
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2(-210, -152)

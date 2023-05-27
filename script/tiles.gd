@@ -1,9 +1,11 @@
 extends Node
 
 #@export var tileMap : Resource
-var path = "res://tileMap/tileMap.txt"
+var levelID = 1
+var path = "res://tileMap/level" + str(levelID) + ".txt"
 var tileR = preload("res://scene/Tile.tscn")
-var spriteCeiling = preload("res://sprite/groundTile1.png")
+var ceiling = preload("res://sprite/groundTile1.png")
+var sand = preload("res://sprite/sandTile1.png")
 
 const WIDTH = 42
 const HEIGHT = 23
@@ -25,14 +27,18 @@ func _ready():
 				var jM = (j - (WIDTH-1) / 2) * SIZE
 				var pos = Vector2(jM,iM)
 				
-				if(tileMap[(i-1)*WIDTH+j] == "0"):
-					t.get_node("Sprite2D").texture = spriteCeiling
-					
+				if(tileMap[(i-1)*WIDTH+j] == "0"): setTex(t,ceiling)
+				
+				if(tileID == "s") : setTex(t,sand)
+				
 				t.add_to_group("tiles" + tileID)
 				add_child(t)
 				t.global_position = pos
 		
 	pass # Replace with function body.
+
+func setTex(t,tex):
+	t.get_node("Sprite2D").texture = tex
 
 func loadFile(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)

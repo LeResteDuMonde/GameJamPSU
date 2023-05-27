@@ -127,7 +127,7 @@ func switchToPlayPhase():
 	CursorManager.deleteCursor()
 	
 	print("Starting Play Phase for Player", currPlayer)
-	GameManager.main.get_node("CagedMonster").respawn()
+	get_tree().call_group("Monster", "respawn")
 	isPlayPhase = true
 	
 	startTimer()

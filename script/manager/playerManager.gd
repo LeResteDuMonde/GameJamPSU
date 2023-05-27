@@ -6,7 +6,8 @@ var playerInitialPos
 
 func _ready():
 	player = GameManager.main.get_node("Player")
-	playerInitialPos = player.position
+	playerInitialPos = GameManager.main.get_node("Level/PlayerSpawn").position
+	respawnPlayer()
 	
 func movePlayer(delta,direction,jump):
 	if GameManager.isPlayPhase:
