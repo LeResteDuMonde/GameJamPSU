@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
-var speed : float = 0.01
-var amplitude : float = 100
-var direction : float = 1
+@export var speed : float = 0.01
+@export var amplitude : float = 100
+@export var direction : float = 1
 var zero
-var angle = 0
+@export var angle : float = 0
 var deleteNumber = 0
 func _ready():
+	angle = deg_to_rad(angle)
 	zero = global_position;
 func _physics_process(delta):
 	# var velocity = get_velocity()

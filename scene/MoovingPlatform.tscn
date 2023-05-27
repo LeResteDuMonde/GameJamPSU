@@ -11,11 +11,11 @@ size = Vector2(127.5, 42)
 [node name="MoovingPlatform" type="CharacterBody2D" groups=["movingPlatform"]]
 script = ExtResource("1_aqilk")
 
-[node name="moving" type="Sprite2D" parent="."]
-texture = ExtResource("2_m6xjy")
-
 [node name="static" type="Sprite2D" parent="."]
 texture = ExtResource("3_irhc8")
+
+[node name="moving" type="Sprite2D" parent="."]
+texture = ExtResource("2_m6xjy")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("3_10kso")
@@ -27,5 +27,3 @@ shape = SubResource("RectangleShape2D_jetl6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, -11)
 shape = SubResource("RectangleShape2D_jetl6")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

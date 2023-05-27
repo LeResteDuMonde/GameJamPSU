@@ -9,7 +9,6 @@
 [node name="Level" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-visible = false
 z_index = -100
 texture = ExtResource("1_gsw35")
 
@@ -17,12 +16,16 @@ texture = ExtResource("1_gsw35")
 script = ExtResource("1_tuho5")
 
 [node name="MoovingPlatform" parent="." instance=ExtResource("2_0laq4")]
+position = Vector2(-82, 168)
+speed = 100.0
+amplitude = 10.0
+direction = 0.0
 
 [node name="CagedMonster" parent="." instance=ExtResource("4_pbh4t")]
-position = Vector2(-215, -79)
+position = Vector2(-40, 16)
 
 [node name="StarShip" parent="." instance=ExtResource("5_r73mh")]
 position = Vector2(217, -32)
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
-position = Vector2(-210, -152)
+position = Vector2(-270, -42)
