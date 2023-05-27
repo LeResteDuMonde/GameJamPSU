@@ -9,7 +9,7 @@ var isDeletePhase = false
 var isPlayPhase = false
 var player1Alive = true
 var player2Alive = true
-var currPlayer = 2
+var currPlayer = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -68,12 +68,20 @@ func displayEndScreen(winner):
 		end.get_node("Player2").visible = true
 	else:
 		end.get_node("Death").visible = true
-		
+	
+func switchPlayer():	
+	if currPlayer == 1:
+		currPlayer = 2
+	elif currPlayer == 2:
+		currPlayer = 1
+	print(currPlayer)
+	PlayerManager.setPlayer(currPlayer)
 	
 func switchToDeletePhase():
 	print("Finishing Play Phase")
+	switchPlayer()
 	isPlayPhase = false
-#	PlayerManager.deletePlayer()
+	PlayerManager.respawnPlayer()
 	
 	print("Entering Delete Phase")
 	isDeletePhase = true
@@ -83,13 +91,7 @@ func switchToPlayPhase():
 	print("Finishing Delete Phase")
 	isDeletePhase = false
 	CursorManager.deleteCursor()
-
+	
 	print("Starting Play Phase for Player", currPlayer)
-	if currPlayer == 1:
-		currPlayer = 2
-	elif currPlayer == 2:
-		currPlayer = 1
-	PlayerManager.respawnPlayer()
-	PlayerManager.setPlayer(currPlayer)
 	GameManager.main.get_node("CagedMonster").respawn()
 	isPlayPhase = true
