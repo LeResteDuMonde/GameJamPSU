@@ -1,70 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcdhxxpw0lxee"]
+[gd_scene load_steps=5 format=3 uid="uid://dcdhxxpw0lxee"]
 
 [ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_5qlf1"]
 [ext_resource type="PackedScene" uid="uid://cgqy7l78bjp34" path="res://scene/Level1.tscn" id="3_2xxfj"]
-[ext_resource type="Script" path="res://script/fader.gd" id="5_j3k2d"]
-[ext_resource type="Animation" uid="uid://c2vksoo7n58ca" path="res://animation/fadeToTrack1.res" id="5_qswal"]
-[ext_resource type="AudioStream" uid="uid://fsd55cosd5wi" path="res://audio/spaceAthmosphere.wav" id="6_x3mlj"]
-[ext_resource type="AudioStream" uid="uid://catosj8t0mjvw" path="res://audio/music/music1.wav" id="7_m5e2n"]
 [ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="9_whwrj"]
 [ext_resource type="PackedScene" uid="uid://cnt7ywbo2jfs7" path="res://scene/Sun.tscn" id="9_y7b7r"]
-
-[sub_resource type="Animation" id="Animation_l87oc"]
-resource_name = "FadeToTrack2"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Track1:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(5.65685, 1),
-"update": 0,
-"values": [0.0, -80.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Track2:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(5.85634, 1),
-"update": 0,
-"values": [-80.0, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Track2:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Track1:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ur1q0"]
-_data = {
-"FadeToTrack1": ExtResource("5_qswal"),
-"FadeToTrack2": SubResource("Animation_l87oc")
-}
 
 [node name="Main" type="Node2D"]
 position = Vector2(2, -2)
@@ -97,19 +36,3 @@ offset_top = -179.0
 offset_right = 320.0
 offset_bottom = -153.0
 text = "No More Oxygen ! 10s"
-
-[node name="BackgroundMusic" type="Node2D" parent="."]
-script = ExtResource("5_j3k2d")
-
-[node name="Track1" type="AudioStreamPlayer" parent="BackgroundMusic"]
-stream = ExtResource("6_x3mlj")
-autoplay = true
-
-[node name="Track2" type="AudioStreamPlayer" parent="BackgroundMusic"]
-stream = ExtResource("7_m5e2n")
-volume_db = -80.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BackgroundMusic"]
-libraries = {
-"": SubResource("AnimationLibrary_ur1q0")
-}

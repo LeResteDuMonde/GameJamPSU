@@ -1,13 +1,26 @@
 extends Node
 
 var soundR = preload("res://scene/Sound.tscn")
-var crossFader
+var crossFadeTimer = 0
+var music
+var ambience
+const FADER_SPEED = 2
+const FADER_TIME = 40
+
 func _ready():
-#	var music = play("music/music1")
-#	var ambience = play("spaceAthmosphere")
-	crossFader = GameManager.main.get_node("BackgroundMusic")
+	music = play("music/music1")
+	music.volume_db = -80
+	ambience = play("spaceAthmosphere")
+#	crossFader = GameManager.main.get_node("BackgroundMusic")
 #	print(crossFader)
-#	crossFader.crossfade()
+
+func _process(delta):
+	if(crossFadeTimer > FADER_TIME and music.volume_db < 0) : 
+		music.volume_db += delta * FADER_SPEED
+		print(music.volume_db)
+		ambience.volume_db -= delta * FADER_SPEED / 50
+	else:
+		crossFadeTimer += delta
 	
 func play(clip_name, count = 0):
 	var s = soundR.instantiate()

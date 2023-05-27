@@ -36,13 +36,7 @@ func _ready():
 					if(i > 0 and tileMap[(i-1)*WIDTH+j] == "0"): tileID = "C"
 					elif(i < HEIGHT - 2 and tileMap[(i+1)*WIDTH+j] == "0"): tileID = "F"
 					if(tileID == "F") : setTex(t,ceiling,true)
-					elif(tileID == "C") : setTex(t,ceiling)
-#				if(i > 0 and tileMap[(i-1)*WIDTH+j] == "0"): setTex(t,ceiling)
-#				elif (i < HEIGHT - 2 and tileMap[(i+1)*WIDTH+j] == "0"): setTex(t,ceiling,true)
-				
-				
-				
-				
+					elif(tileID == "C") : setTex(t,ceiling)		
 				add_child(t)
 				t.global_position = pos
 		
