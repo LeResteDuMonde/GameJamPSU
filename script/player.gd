@@ -10,6 +10,8 @@ var jumpTimer = 0
 
 var isJumping = true
 
+@onready var bootsFlame = $BootsFlame
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
@@ -17,8 +19,6 @@ func _physics_process(delta):
 	if boundaries.y < global_position.y/2:
 		print_debug("killed by boundaries")
 		kill()
-	
-	
 	
 func move(delta, direction, jump):
 	
@@ -58,11 +58,14 @@ func analogicJump(delta,jump):
 		jumpTimer = 0
 	
 	if(jumpTimer > 0):
+		bootsFlame.visible = true
+		bootsFlame.play()
 		velocity.y = ANALOGIC_JUMP_VELOCITY * (1 - (jumpTime - jumpTimer) / jumpTime) ** 2
 	else:
 		applyGravity(delta)
 
 func applyGravity(delta):
+	bootsFlame.visible = false
 	velocity.y += gravity * delta
 	
 func delete(g):

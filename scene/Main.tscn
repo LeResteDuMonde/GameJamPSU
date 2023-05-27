@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://r2jg2qa78ljk"]
 
-[ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_5qlf1"]
+[ext_resource type="PackedScene" uid="uid://fgeueswxv6ti" path="res://scene/Player.tscn" id="1_5qlf1"]
 [ext_resource type="PackedScene" uid="uid://c81jqkjhumv0x" path="res://scene/Platform.tscn" id="2_kb0mr"]
 [ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="5_x6sdr"]
 [ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="6_3gsa4"]
