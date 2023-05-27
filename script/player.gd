@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
 const ANALOGIC_JUMP_VELOCITY = -200.0
-var jumpIsAnalogic = true
+var jumpIsAnalogic
 var jumpTime = 1
 var jumpTimer = 0
 

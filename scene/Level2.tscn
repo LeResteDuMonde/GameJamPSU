@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3y5bd0op8lmp"]
+[gd_scene load_steps=11 format=3 uid="uid://c3y5bd0op8lmp"]
 
 [ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="1_glgcc"]
 [ext_resource type="Script" path="res://script/level.gd" id="1_k8nad"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="6_dlo77"]
 [ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="7_7mklq"]
 [ext_resource type="PackedScene" uid="uid://dbcd6fr84pr3u" path="res://scene/Lamp.tscn" id="7_gfa2a"]
+[ext_resource type="PackedScene" uid="uid://yifq3r7f674j" path="res://scene/Boots.tscn" id="9_r8yyq"]
+[ext_resource type="PackedScene" uid="uid://bc36jfy1dhbcg" path="res://scene/Oxygen.tscn" id="10_6o0kp"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_k8nad")
@@ -51,3 +53,13 @@ position = Vector2(33, -34)
 
 [node name="LightSource2" parent="." instance=ExtResource("7_gfa2a")]
 position = Vector2(-237, -9)
+
+[node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="boots" parent="UI" instance=ExtResource("9_r8yyq")]
+z_index = 10
+position = Vector2(-278, -164)
+
+[node name="oxygen" parent="UI" instance=ExtResource("10_6o0kp")]
+position = Vector2(-308, -164)

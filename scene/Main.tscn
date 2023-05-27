@@ -1,13 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcdhxxpw0lxee"]
+[gd_scene load_steps=10 format=3 uid="uid://dcdhxxpw0lxee"]
 
-[ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_5qlf1"]
-[ext_resource type="PackedScene" uid="uid://yifq3r7f674j" path="res://scene/Boots.tscn" id="3_s88va"]
-[ext_resource type="PackedScene" uid="uid://bc36jfy1dhbcg" path="res://scene/Oxygen.tscn" id="4_v4o6b"]
+[ext_resource type="PackedScene" uid="uid://dujxbu1t8eps6" path="res://scene/Player.tscn" id="1_5qlf1"]
 [ext_resource type="PackedScene" uid="uid://bxsl1oxcjehbv" path="res://scene/titles/TitleScreen.tscn" id="5_7l5dp"]
 [ext_resource type="PackedScene" uid="uid://buo02u4mru6o0" path="res://scene/titles/ControlScreen.tscn" id="6_ybmoa"]
 [ext_resource type="PackedScene" uid="uid://dpejnty4ev0y" path="res://scene/titles/DestroyScreen.tscn" id="7_uf452"]
 [ext_resource type="PackedScene" uid="uid://qq7fgspy81" path="res://scene/titles/EndScreen.tscn" id="8_b1yq3"]
-[ext_resource type="PackedScene" uid="uid://iccte0re82wh" path="res://scene/titles/LevelSelect.tscn" id="9_4r6d8"]
+[ext_resource type="PackedScene" uid="uid://bolm236nihk52" path="res://scene/titles/LevelSelect.tscn" id="9_4r6d8"]
 [ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="9_whwrj"]
 [ext_resource type="PackedScene" uid="uid://cgjnbfc3cf3l1" path="res://scene/titles/Player1Interstice.tscn" id="10_ty023"]
 [ext_resource type="PackedScene" uid="uid://52q4hrcwhgnu" path="res://scene/titles/Player2Interstice.tscn" id="11_arpag"]
@@ -28,11 +26,9 @@ position = Vector2(0, -32)
 color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer" parent="."]
+process_priority = 2
+layer = 2
 follow_viewport_enabled = true
-
-[node name="boots" parent="UI" instance=ExtResource("3_s88va")]
-
-[node name="oxygen" parent="UI" instance=ExtResource("4_v4o6b")]
 
 [node name="OxygenLabel" type="Label" parent="UI"]
 visible = false

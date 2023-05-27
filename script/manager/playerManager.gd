@@ -10,6 +10,7 @@ func spawnPlayer(lev):
 	level = lev
 #	playerInitialPos = level.get_node("PlayerSpawn").position 
 #	GameManager.main.get_node("Level/PlayerSpawn").position
+	player.jumpIsAnalogic = true
 	setPlayer(1)
 	respawnPlayer()
 	
