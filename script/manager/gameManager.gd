@@ -50,6 +50,7 @@ func startGame(lev):
 	player1Alive = true
 	player2Alive = true
 	timeEnable = false
+	CursorManager.deleteCursor()
 	
 func quit():
 	get_tree().quit()
