@@ -10,7 +10,7 @@ var isDeletePhase = false
 var isPlayPhase = false
 var player1Alive = true
 var player2Alive = true
-var currPlayer = 1
+var currPlayer
 
 #dying of oxygene
 var timeEnable = false
@@ -24,6 +24,7 @@ func _ready():
 	root = get_tree().root
 	main = root.get_node("Main")
 	oxygenDisplay = main.get_node("UI/OxygenLabel")
+	currPlayer = 1
 	
 	# Show Title Screen first
 	displayTitleScreen()
@@ -123,16 +124,16 @@ func switchPlayer():
 		currPlayer = 2
 	elif currPlayer == 2:
 		currPlayer = 1
-	print(currPlayer)
+	print("Player is now ", currPlayer)
 	PlayerManager.setPlayer(currPlayer)
 	
 func endPlayPhase():
 	print("Finishing Play Phase")
+	isPlayPhase = false	
 	get_tree().call_group("Monster", "pauseMonster")	
-	isPlayPhase = false
 	
 func startDeletePhase():
-	print("Entering Delete Phase")
+	print("Starting Delete Phase")
 	switchPlayer()
 	PlayerManager.respawnPlayer()
 	isDeletePhase = true
@@ -152,5 +153,5 @@ func startPlayPhase():
 	startTimer()
 
 func startTimer():
-	print("reset timer")
+#	print("reset timer")
 	timeStamp =  Time.get_ticks_msec()

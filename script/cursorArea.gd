@@ -36,4 +36,3 @@ func _input(event):
 		if deletedSomething:
 			unhighlightAll()
 			GameManager.endDeletePhase()
-			GameManager.startPlayPhase()

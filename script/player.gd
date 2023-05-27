@@ -47,15 +47,17 @@ func move(delta, direction, jump):
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		#print_debug(collider.name)
+		if !GameManager.isPlayPhase: return
 		if collider.name == "StarShip":
 			GameManager.win()
 		elif collider.name == "CagedMonster":
 			if collider.isDeadly:
-				GameManager.killPlayer()
+				kill()
 	
 func kill():
+	if GameManager.isPlayPhase:
 #	PlayerManager.respawnPlayer()
-	GameManager.killPlayer()
+		GameManager.killPlayer()
 
 func jump(delta,jump):
 	if not is_on_floor():

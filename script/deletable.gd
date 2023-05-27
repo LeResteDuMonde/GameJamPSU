@@ -11,6 +11,6 @@ func unhighlight(g):
 		high.visible = false
 
 func delete(g):
-	print_debug("delete")
+#	print_debug("delete")
 #	AudioManager.play("clic")
 	queue_free()
