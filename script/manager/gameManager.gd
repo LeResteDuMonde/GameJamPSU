@@ -11,10 +11,11 @@ var player1Alive = true
 var player2Alive = true
 var currPlayer = 1
 
-#dying of oxigene
+#dying of oxygene
 var timeEnable = false
 var timeStamp = 0
 var timeToDeath = 10
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,7 +25,13 @@ func _ready():
 	
 	# Show Title Screen first
 	displayTitleScreen()
-
+	
+func _process(delta):
+	#print(Time.get_ticks_msec() - timeStamp, isPlayPhase, timeEnable)
+	if timeEnable and isPlayPhase and timeStamp + timeToDeath*1000 < Time.get_ticks_msec():
+		killPlayer()
+	
+	
 func quit():
 	get_tree().quit()
 	
@@ -37,12 +44,18 @@ func displayTitleScreen():
 	main.get_node("UI").add_child(title)
 	
 func _input(event):
-	if event.is_action_released("click") and title != null:
+	if event.is_action_released("click") and (title != null or interstice != null):
 		print("Hide Title Screen")
-		title.queue_free()
+		if title!=null:
+			title.queue_free()
+		if interstice!=null:
+			interstice.queue_free()
+			interstice = null
+			
 		switchToPlayPhase()
 	
 func killPlayer():
+	
 	if currPlayer == 1:
 		print("Killed Player 1")
 		player1Alive = false
@@ -55,7 +68,8 @@ func killPlayer():
 	else:
 		switchPlayer()
 		PlayerManager.respawnPlayer()
-		switchToPlayPhase()
+		#switchToPlayPhase()
+		displayIntersticeScreen(currPlayer-1)
 	
 func win():
 	if not player1Alive:
@@ -66,8 +80,8 @@ func win():
 		switchToDeletePhase()
 	
 var endS = preload("res://scene/EndScreen.tscn")
-
 func displayEndScreen(winner):
+	
 	var end = endS.instantiate()
 	main.get_node("UI").add_child(end)
 	if winner == 1:
@@ -76,6 +90,18 @@ func displayEndScreen(winner):
 		end.get_node("Player2").visible = true
 	else:
 		end.get_node("Death").visible = true
+	
+var player1Interstice = load("res://scene/interstice/Player1Interstice.tscn")
+var player2Interstice = load("res://scene/interstice/Player1Interstice.tscn")
+var interstice = null
+func displayIntersticeScreen(player):
+	print_debug("interstice screen %d"%player)
+	if player==1:
+		interstice = player2Interstice.instantiate()
+	if player==2:
+		interstice = player1Interstice.instantiate()
+	#add_child()
+		
 	
 func switchPlayer():	
 	if currPlayer == 1:
@@ -103,3 +129,9 @@ func switchToPlayPhase():
 	print("Starting Play Phase for Player", currPlayer)
 	GameManager.main.get_node("CagedMonster").respawn()
 	isPlayPhase = true
+	
+	startTimer()
+	
+func startTimer():
+	print("reset timer")
+	timeStamp =  Time.get_ticks_msec()

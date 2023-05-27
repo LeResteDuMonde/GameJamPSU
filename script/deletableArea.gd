@@ -37,7 +37,7 @@ func _input(event):
 	#		print_debug("click groupe %s"%g)
 			if g != "_physics_process":
 			#	print_debug(get_tree().get_first_node_in_group(g).delete(g))
-			#	print_debug("groupe %s is called to be deleted" % g)
+				print_debug("groupe %s is called to be deleted" % g)
 				get_tree().call_group(g, "delete",g)
 		GameManager.switchToPlayPhase()
 

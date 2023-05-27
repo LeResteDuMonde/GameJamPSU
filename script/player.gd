@@ -81,9 +81,10 @@ func applyGravity(delta):
 	velocity.y += gravity * delta
 	
 func delete(g):
-	if g=="oxigene":
-		GameManager.timerEnable = true
+	print_debug(g)
+	if g=="oxygene":
 		GameManager.startTimer()
+		GameManager.timeEnable = true
 	if g=="boots":
 		jumpIsAnalogic = false
 	
