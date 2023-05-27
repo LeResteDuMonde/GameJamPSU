@@ -1,45 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://r2jg2qa78ljk"]
+[gd_scene load_steps=5 format=3 uid="uid://dcdhxxpw0lxee"]
 
 [ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_5qlf1"]
-[ext_resource type="PackedScene" uid="uid://c81jqkjhumv0x" path="res://scene/Platform.tscn" id="2_kb0mr"]
-[ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="5_x6sdr"]
-[ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="6_3gsa4"]
-[ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="7_l1aai"]
 [ext_resource type="PackedScene" uid="uid://dcap0fd4yk14k" path="res://scene/Level.tscn" id="8_gc05f"]
+[ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="9_whwrj"]
 [ext_resource type="PackedScene" uid="uid://cnt7ywbo2jfs7" path="res://scene/Sun.tscn" id="9_y7b7r"]
-[ext_resource type="PackedScene" uid="uid://dbcd6fr84pr3u" path="res://scene/Lamp.tscn" id="10_3stve"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(2, -2)
 
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+texture = ExtResource("9_whwrj")
+
 [node name="Camera" type="Camera2D" parent="."]
-
-[node name="Platform5" parent="." instance=ExtResource("2_kb0mr")]
-position = Vector2(-392, 150)
-
-[node name="Platform4" parent="." instance=ExtResource("2_kb0mr")]
-position = Vector2(-523, 150)
-
-[node name="Platform3" parent="." instance=ExtResource("2_kb0mr")]
-position = Vector2(-261, 150)
-
-[node name="Platform2" parent="." instance=ExtResource("2_kb0mr")]
-position = Vector2(165, -244)
-
-[node name="Platform" parent="." instance=ExtResource("2_kb0mr")]
-
-[node name="MoovingPlatform" parent="." instance=ExtResource("5_x6sdr")]
-z_index = 205
-position = Vector2(0, -100)
-up_direction = Vector2(-1, 0)
-amplitude = 20.0
-angle = 85.0
-
-[node name="CagedMonster" parent="." instance=ExtResource("6_3gsa4")]
-position = Vector2(-254, -41)
-
-[node name="StarShip" parent="." instance=ExtResource("7_l1aai")]
-position = Vector2(88, -17)
 
 [node name="Player" parent="." instance=ExtResource("1_5qlf1")]
 position = Vector2(0, -32)
@@ -49,16 +22,9 @@ position = Vector2(0, -32)
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
 
-[node name="Lights" type="Node2D" parent="."]
-
-[node name="Sun" parent="Lights" instance=ExtResource("9_y7b7r")]
-position = Vector2(-205, -122)
-
-[node name="Lamp" parent="Lights" instance=ExtResource("10_3stve")]
-position = Vector2(-18, -15)
-
-[node name="Lamp4" parent="Lights" instance=ExtResource("10_3stve")]
-position = Vector2(107, 7)
+[node name="Sun" parent="." instance=ExtResource("9_y7b7r")]
+z_index = -90
+position = Vector2(-198, -128)
 
 [node name="UI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
