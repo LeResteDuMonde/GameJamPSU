@@ -11,7 +11,7 @@ func _ready():
 func _physics_process(delta):
 	# var velocity = get_velocity()
 	var move = Vector2(cos(angle)* direction * speed * amplitude,sin(angle)*direction * speed * amplitude)
-	var deltax = sqrt((global_position.x - zero.x)**2 +  (global_position.y - zero.y)**2)
+	var deltax = cos(angle)*(global_position.x - zero.x) +  sin(angle)*(global_position.y - zero.y)
 
 	if deltax > amplitude:
 		direction = -1
