@@ -11,6 +11,7 @@ func _ready():
 	music = play("music/music1")
 	music.volume_db = -80
 	ambience = play("spaceAthmosphere")
+	ambience.play(7)
 #	crossFader = GameManager.main.get_node("BackgroundMusic")
 #	print(crossFader)
 
