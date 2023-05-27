@@ -28,12 +28,19 @@ func _ready():
 				var jM = (j - (WIDTH-1) / 2) * SIZE
 				var pos = Vector2(jM,iM)
 				
-				if(i > 0 and tileMap[(i-1)*WIDTH+j] == "0"): setTex(t,ceiling)
-				elif (i < HEIGHT - 2 and tileMap[(i+1)*WIDTH+j] == "0"): setTex(t,ceiling,true)
+				if(tileID != "X"): t.add_to_group("tiles" + tileID)
 				
 				if(tileID == "S") : setTex(t,sand)
-				if(tileID == "P") : setTex(t,stone)
-				if(tileID != "X"): t.add_to_group("tiles" + tileID)
+				elif(tileID == "P") : setTex(t,stone)
+				else:
+					if(i > 0 and tileMap[(i-1)*WIDTH+j] == "0"): tileID = "C"
+					elif(i < HEIGHT - 2 and tileMap[(i+1)*WIDTH+j] == "0"): tileID = "F"
+					if(tileID == "F") : setTex(t,ceiling,true)
+					elif(tileID == "C") : setTex(t,ceiling)
+#				if(i > 0 and tileMap[(i-1)*WIDTH+j] == "0"): setTex(t,ceiling)
+#				elif (i < HEIGHT - 2 and tileMap[(i+1)*WIDTH+j] == "0"): setTex(t,ceiling,true)
+				
+				
 				
 				
 				add_child(t)
