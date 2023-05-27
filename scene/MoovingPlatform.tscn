@@ -16,6 +16,7 @@ size = Vector2(127.5, 42)
 
 [node name="MoovingPlatform" type="CharacterBody2D" groups=["movingPlatform"]]
 script = ExtResource("1_aqilk")
+speed = 1.0
 
 [node name="moving" type="Sprite2D" parent="."]
 texture = ExtResource("2_m6xjy")

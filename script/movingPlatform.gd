@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed : float = 0.01
 @export var amplitude : float = 100
-@export var direction : float = 1
+var direction : float = 1
 var zero
 @export var angle : float = 0
 var deleteNumber = 0
