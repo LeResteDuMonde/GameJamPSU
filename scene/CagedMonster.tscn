@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://clx0tvtrn2uj6"]
+[gd_scene load_steps=9 format=3 uid="uid://clx0tvtrn2uj6"]
 
 [ext_resource type="Script" path="res://script/CagedMonster.gd" id="1_beoon"]
 [ext_resource type="Texture2D" uid="uid://cxho4ihl7i2x3" path="res://sprite/alienFrame1.png" id="2_laqqj"]
@@ -7,12 +7,15 @@
 [ext_resource type="Script" path="res://script/deletableArea.gd" id="4_imqrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_472wj"]
-size = Vector2(63, 63)
+size = Vector2(64, 63)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ccwg"]
 shader = ExtResource("4_4kny8")
 shader_parameter/line_color = Color(1, 1, 0, 1)
 shader_parameter/line_thickness = 0.824
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax8ph"]
+size = Vector2(60, 60)
 
 [node name="CagedMonster" type="CharacterBody2D" groups=["Monster"]]
 script = ExtResource("1_beoon")
@@ -24,7 +27,7 @@ position = Vector2(7, -2)
 texture = ExtResource("2_laqqj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6.5, -1)
+position = Vector2(7, -2.5)
 shape = SubResource("RectangleShape2D_472wj")
 
 [node name="cage" type="Sprite2D" parent="."]
@@ -41,5 +44,5 @@ texture = ExtResource("3_dt23o")
 script = ExtResource("4_imqrv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(7.5, -1.5)
-shape = SubResource("RectangleShape2D_472wj")
+position = Vector2(7, -2)
+shape = SubResource("RectangleShape2D_ax8ph")
