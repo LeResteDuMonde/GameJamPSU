@@ -35,4 +35,5 @@ func _input(event):
 				
 		if deletedSomething:
 			unhighlightAll()
-			GameManager.displayIntersticeScreen(GameManager.currPlayer)
+			GameManager.endDeletePhase()
+			GameManager.startPlayPhase()

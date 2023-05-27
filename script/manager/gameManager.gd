@@ -4,6 +4,7 @@ var main
 var main_r = preload("res://scene/Main.tscn")
 var root
 var web 
+var oxygenDisplay
 
 var isDeletePhase = false
 var isPlayPhase = false
@@ -22,12 +23,18 @@ func _ready():
 	if(OS.get_distribution_name() == ""): web = true
 	root = get_tree().root
 	main = root.get_node("Main")
+	oxygenDisplay = main.get_node("UI/OxygenLabel")
 	
 	# Show Title Screen first
 	displayTitleScreen()
 	
 func _process(delta):
 	#print(Time.get_ticks_msec() - timeStamp, isPlayPhase, timeEnable)
+	if timeEnable && isPlayPhase:
+		oxygenDisplay.visible = true
+		oxygenDisplay.text = "No more oxygen! %d s" % (timeToDeath-(Time.get_ticks_msec()-timeStamp)/1000)
+		
+		
 	if timeEnable and isPlayPhase and timeStamp + timeToDeath*1000 < Time.get_ticks_msec():
 		killPlayer()
 	
@@ -57,10 +64,10 @@ func hideTitleScreen():
 			
 func _input(event):
 	if event.is_action_pressed("click") and (title != null or interstice != null):
-		switchToPlayPhase()
+		hideTitleScreen()
+		startPlayPhase()
 	
 func killPlayer():
-	
 	if currPlayer == 1:
 		print("Killed Player 1")
 		player1Alive = false
@@ -73,8 +80,7 @@ func killPlayer():
 	else:
 		switchPlayer()
 		PlayerManager.respawnPlayer()
-		#switchToPlayPhase()
-		displayIntersticeScreen(currPlayer-1)
+		displayIntersticeScreen()
 	
 func win():
 	if not player1Alive:
@@ -82,7 +88,8 @@ func win():
 	elif not player2Alive:
 		displayEndScreen(1)
 	else:
-		switchToDeletePhase()
+		endPlayPhase()
+		startDeletePhase()
 	
 var endS = preload("res://scene/EndScreen.tscn")
 func displayEndScreen(winner):
@@ -97,15 +104,16 @@ func displayEndScreen(winner):
 		end.get_node("Death").visible = true
 	
 var player1Interstice = load("res://scene/interstice/Player1Interstice.tscn")
-var player2Interstice = load("res://scene/interstice/Player1Interstice.tscn")
+var player2Interstice = load("res://scene/interstice/Player2Interstice.tscn")
 var interstice = null
-func displayIntersticeScreen(player):
+
+func displayIntersticeScreen():
 	isPlayPhase=false
-	print_debug("interstice screen %d"%player)
-	if player==1:
-		interstice = player2Interstice.instantiate()
-	if player==2:
+	print_debug("interstice screen %d"%currPlayer)
+	if currPlayer==1:
 		interstice = player1Interstice.instantiate()
+	if currPlayer==2:
+		interstice = player2Interstice.instantiate()
 	main.get_node("UI").add_child(interstice)
 		
 	
@@ -117,31 +125,31 @@ func switchPlayer():
 	print(currPlayer)
 	PlayerManager.setPlayer(currPlayer)
 	
-func switchToDeletePhase():
-	get_tree().call_group("Monster", "pauseMonster")
+func endPlayPhase():
 	print("Finishing Play Phase")
-	switchPlayer()
+	get_tree().call_group("Monster", "pauseMonster")	
 	isPlayPhase = false
-	PlayerManager.respawnPlayer()
 	
+func startDeletePhase():
 	print("Entering Delete Phase")
+	switchPlayer()
+	PlayerManager.respawnPlayer()
 	isDeletePhase = true
 	CursorManager.spawnCursor()
 	
-func switchToPlayPhase():
+func endDeletePhase():
 	print("Finishing Delete Phase")
-	hideTitleScreen()
 	isDeletePhase = false
 	CursorManager.deleteCursor()
+	displayIntersticeScreen()
 	
+func startPlayPhase():
 	print("Starting Play Phase for Player", currPlayer)
 	get_tree().call_group("Monster", "respawn")
 	get_tree().call_group("Monster", "resumeMonster")
 	isPlayPhase = true
-	
 	startTimer()
-	
-	
+
 func startTimer():
 	print("reset timer")
 	timeStamp =  Time.get_ticks_msec()

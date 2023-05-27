@@ -28,3 +28,11 @@ position = Vector2(-198, -128)
 
 [node name="UI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
+
+[node name="OxygenLabel" type="Label" parent="UI"]
+visible = false
+offset_left = 151.0
+offset_top = -179.0
+offset_right = 320.0
+offset_bottom = -153.0
+text = "No More Oxygen ! 10s"
