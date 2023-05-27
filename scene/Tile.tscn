@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bpr17yvdebkct"]
 
-[ext_resource type="Texture2D" uid="uid://c5ke2pn4kwj4" path="res://sprite/groundTile1.png" id="1_4xv0d"]
 [ext_resource type="Script" path="res://script/deletable.gd" id="1_xwdvg"]
+[ext_resource type="Texture2D" uid="uid://y5fwjdse6sdi" path="res://sprite/groundTile2.png" id="3_kmw2y"]
 [ext_resource type="Script" path="res://script/deletableArea.gd" id="3_wnknv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjywy"]
 size = Vector2(16, 16)
 
-[node name="Tile" type="StaticBody2D" groups=["groundTiles"]]
+[node name="Tile" type="StaticBody2D"]
 script = ExtResource("1_xwdvg")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -20,4 +20,4 @@ shape = SubResource("RectangleShape2D_hjywy")
 shape = SubResource("RectangleShape2D_hjywy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4xv0d")
+texture = ExtResource("3_kmw2y")

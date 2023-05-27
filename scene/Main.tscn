@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://r2jg2qa78ljk"]
+[gd_scene load_steps=10 format=3 uid="uid://r2jg2qa78ljk"]
 
 [ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_5qlf1"]
 [ext_resource type="PackedScene" uid="uid://b8tfkx4yebvud" path="res://scene/Cursor.tscn" id="1_mgw5y"]
@@ -6,38 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="5_x6sdr"]
 [ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="6_3gsa4"]
 [ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="7_l1aai"]
-[ext_resource type="PackedScene" uid="uid://bpr17yvdebkct" path="res://scene/Tile.tscn" id="7_siwmh"]
-[ext_resource type="PackedScene" path="res://scene/Level.tscn" id="8_gc05f"]
+[ext_resource type="PackedScene" uid="uid://dcap0fd4yk14k" path="res://scene/Level.tscn" id="8_gc05f"]
 [ext_resource type="PackedScene" uid="uid://cnt7ywbo2jfs7" path="res://scene/Sun.tscn" id="9_y7b7r"]
 [ext_resource type="PackedScene" uid="uid://dbcd6fr84pr3u" path="res://scene/Lamp.tscn" id="10_3stve"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(2, -2)
-
-[node name="Tiles" type="Node2D" parent="."]
-
-[node name="Tile8" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(40, 22)
-
-[node name="Tile" parent="Tiles" instance=ExtResource("7_siwmh")]
-
-[node name="Tile2" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(16, 3)
-
-[node name="Tile3" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(32, 6)
-
-[node name="Tile4" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(72, 24)
-
-[node name="Tile5" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(88, 24)
-
-[node name="Tile6" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(104, 24)
-
-[node name="Tile7" parent="Tiles" instance=ExtResource("7_siwmh")]
-position = Vector2(56, 18)
 
 [node name="Camera" type="Camera2D" parent="."]
 
@@ -70,6 +44,9 @@ position = Vector2(88, -17)
 
 [node name="Player" parent="." instance=ExtResource("1_5qlf1")]
 position = Vector2(0, -32)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(302, 182)
 
 [node name="Level" parent="." instance=ExtResource("8_gc05f")]
 
