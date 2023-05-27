@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://script/deletableArea.gd" id="4_imqrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_472wj"]
-size = Vector2(63, 62)
+size = Vector2(63, 63)
 
 [node name="CagedMonster" type="CharacterBody2D" groups=["Monster"]]
 script = ExtResource("1_beoon")
@@ -29,5 +29,5 @@ texture = ExtResource("3_dt23o")
 script = ExtResource("4_imqrv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(6.5, -1)
+position = Vector2(7.5, -1.5)
 shape = SubResource("RectangleShape2D_472wj")
