@@ -1,8 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://tl85fq14y76s"]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://tl85fq14y76s"]
 
 [ext_resource type="Texture2D" uid="uid://djnl2rvs2cetu" path="res://sprite/spritePlayer2.png" id="1_qi5h0"]
 [ext_resource type="Texture2D" uid="uid://d0kjodgarx1p" path="res://sprite/spritePlayer2Landing.png" id="2_dn73j"]
+[ext_resource type="Texture2D" uid="uid://51fw3yk2u7sq" path="res://sprite/spritePlayer2Boots.png" id="2_l4x2k"]
 [ext_resource type="Texture2D" uid="uid://dokipmyvcpy64" path="res://sprite/spritePlayer2Walking1.png" id="3_tb6uw"]
+[ext_resource type="Texture2D" uid="uid://cs3y4k011d38v" path="res://sprite/spritePlayer2Oxygen.png" id="3_xcna4"]
 [ext_resource type="Texture2D" uid="uid://c6axna6t38yom" path="res://sprite/spritePlayer2Walking2.png" id="4_0cldh"]
 
 [resource]
@@ -13,6 +15,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l4x2k")
+}],
+"loop": true,
+"name": &"highlightBoots",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xcna4")
+}],
+"loop": true,
+"name": &"highlightOxygen",
 "speed": 5.0
 }, {
 "frames": [{

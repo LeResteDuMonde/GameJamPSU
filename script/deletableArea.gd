@@ -11,20 +11,17 @@ func isCursor(area):
 	return area.get_node("../").name == "Cursor"
 	
 func onAreaEntered(area):
-	
-	#if (object.name=="oxigene"):
-	#	print_debug("area entered")
 	if isCursor(area) && GameManager.isDeletePhase:
 		for g in object.get_groups():
 			if g != "_physics_process":
-				get_tree().call_group(g, "highlight")
+				get_tree().call_group(g, "highlight", g)
 		isSelected = true
 
 func onAreaExited(area):
 	if isCursor(area) && GameManager.isDeletePhase:
 		for g in object.get_groups():
 			if g != "_physics_process":
-				get_tree().call_group(g, "unhighlight")
+				get_tree().call_group(g, "unhighlight", g)
 		isSelected = false
 
 func _input(event):

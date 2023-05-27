@@ -22,6 +22,12 @@ func _physics_process(delta):
 	
 	move_and_collide(move)
 	
+func highlight(g):
+	get_node("Highlight").visible = true
+	
+func unhighlight(g):
+	get_node("Highlight").visible = false
+	
 func delete(g):
 	print_debug("delete the moving platform")
 	if deleteNumber==2:

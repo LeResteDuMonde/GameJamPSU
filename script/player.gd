@@ -88,3 +88,12 @@ func delete(g):
 	if g=="boots":
 		jumpIsAnalogic = false
 	
+func highlight(g):
+	if g=="oxygene":
+		sprite.play("highlightOxygen")
+	elif g=="boots":
+		sprite.play("highlightBoots")
+	
+func unhighlight(g):
+	sprite.play("default")
+

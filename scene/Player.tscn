@@ -46,3 +46,4 @@ sprite_frames = ExtResource("4_pk4dr")
 
 [node name="Body" type="AnimatedSprite2D" parent="Sprites"]
 sprite_frames = ExtResource("2_x6hji")
+animation = &"highlightOxygen"

@@ -1,10 +1,10 @@
 extends Node2D
 
-func highlight():
-	modulate.a = 0.5
+func highlight(g):
+	get_node("Highlight").visible = true
 	
-func unhighlight():
-	modulate.a = 1
+func unhighlight(g):
+	get_node("Highlight").visible = false
 
 func delete(g):
 	print_debug("delete")

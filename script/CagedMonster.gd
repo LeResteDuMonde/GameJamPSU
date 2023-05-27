@@ -36,13 +36,13 @@ func _physics_process(delta):
 			if "kill" in collision_event.get_collider(): 
 				GameManager.killPlayer()
 				
-func highlight():
+func highlight(g):
 	if not isDeadly:
-		get_node("cage").modulate.a = 0.5
+		get_node("highlightCage").visible = true
 	
-func unhighlight():
+func unhighlight(g):
 	if not isDeadly:
-		get_node("cage").modulate.a = 1
+		get_node("highlightCage").visible = false
 		
 func respawn():
 	position = zero
