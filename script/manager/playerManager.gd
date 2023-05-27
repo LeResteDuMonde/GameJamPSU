@@ -10,6 +10,7 @@ func spawnPlayer(lev):
 	level = lev
 #	playerInitialPos = level.get_node("PlayerSpawn").position 
 #	GameManager.main.get_node("Level/PlayerSpawn").position
+	setPlayer(1)
 	respawnPlayer()
 	
 func movePlayer(delta,direction,jump):
@@ -29,5 +30,8 @@ var player2 = preload("res://animation/player2.tres")
 func setPlayer(nb):
 	if nb == 1:
 		player.get_node("Sprites/Body").sprite_frames = player1
+		player.get_node("PointLight2D").color = Color(.49,.79,.39,.5)		
 	elif nb == 2:
 		player.get_node("Sprites/Body").sprite_frames = player2
+		player.get_node("PointLight2D").color = Color(.34,.76,.89,.5)
+		

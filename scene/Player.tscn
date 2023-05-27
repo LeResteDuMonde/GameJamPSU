@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://3n3atoqehe5u"]
+[gd_scene load_steps=15 format=3 uid="uid://dujxbu1t8eps6"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_mceob"]
-[ext_resource type="SpriteFrames" uid="uid://tl85fq14y76s" path="res://animation/player1.tres" id="2_x6hji"]
+[ext_resource type="SpriteFrames" uid="uid://cmg72obyvdc0l" path="res://animation/player1.tres" id="2_x6hji"]
 [ext_resource type="SpriteFrames" uid="uid://d3fhtgen6qju1" path="res://animation/bootsFlame.tres" id="4_pk4dr"]
 [ext_resource type="Texture2D" uid="uid://bqodcy5pq11u6" path="res://sprite/pointLight.webp" id="5_bd42t"]
 [ext_resource type="Texture2D" uid="uid://bmqmhjshp4he1" path="res://sprite/explosion/oxygenExplosion1.png" id="5_speek"]
@@ -114,5 +114,5 @@ frame_progress = 0.64099
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-16, -12)
-color = Color(1, 0.588235, 0, 0.494118)
+color = Color(0.34, 0.76, 0.89, 0.5)
 texture = ExtResource("5_bd42t")
