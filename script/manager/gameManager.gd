@@ -44,7 +44,7 @@ func displayTitleScreen():
 	main.get_node("UI").add_child(title)
 	
 func _input(event):
-	if event.is_action_released("click") and (title != null or interstice != null):
+	if event.is_action_pressed("click") and (title != null or interstice != null):
 		print("Hide Title Screen")
 		if title!=null:
 			title.queue_free()
@@ -95,12 +95,13 @@ var player1Interstice = load("res://scene/interstice/Player1Interstice.tscn")
 var player2Interstice = load("res://scene/interstice/Player1Interstice.tscn")
 var interstice = null
 func displayIntersticeScreen(player):
+	isPlayPhase=false
 	print_debug("interstice screen %d"%player)
 	if player==1:
 		interstice = player2Interstice.instantiate()
 	if player==2:
 		interstice = player1Interstice.instantiate()
-	#add_child()
+	add_child(interstice)
 		
 	
 func switchPlayer():	
@@ -130,7 +131,6 @@ func switchToPlayPhase():
 	get_tree().call_group("Monster", "respawn")
 	isPlayPhase = true
 	
-	startTimer()
 	
 func startTimer():
 	print("reset timer")

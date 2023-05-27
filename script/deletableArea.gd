@@ -24,6 +24,7 @@ func onAreaExited(area):
 				get_tree().call_group(g, "unhighlight", g)
 		isSelected = false
 
+var lastClick = 0
 func _input(event):
 	var deletedSomething = false
 	if event.is_action_released("click") && isSelected && GameManager.isDeletePhase:
@@ -34,5 +35,7 @@ func _input(event):
 				deletedSomething = true
 				
 	if deletedSomething:
-		GameManager.switchToPlayPhase()
+		#GameManager.switchToPlayPhase()
+		lastClick = Time.get_ticks_msec()      
+		GameManager.displayIntersticeScreen(GameManager.currPlayer)
 

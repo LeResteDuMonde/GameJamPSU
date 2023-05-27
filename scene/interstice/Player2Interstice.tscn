@@ -6,5 +6,5 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 424
-position = Vector2(915, 532)
+position = Vector2(624, 344)
 texture = ExtResource("1_krrq0")

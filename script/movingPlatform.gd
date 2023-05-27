@@ -13,7 +13,7 @@ func _physics_process(delta):
 	# var velocity = get_velocity()
 	var move = Vector2(cos(angle)* direction * speed * amplitude,sin(angle)*direction * speed * amplitude)
 	var deltax = cos(angle)*(global_position.x - zero.x) +  sin(angle)*(global_position.y - zero.y)
-
+	#print_debug(move,deltax)
 	if deltax > amplitude:
 		direction = -1
 	if deltax < -amplitude: 
@@ -39,5 +39,5 @@ func delete(g):
 	else: 
 		get_node("moving").visible = false
 		get_node("static").visible = true
-		deleteNumber+=1
+		deleteNumber=1
 		speed=0
