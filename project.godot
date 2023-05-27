@@ -22,6 +22,7 @@ PlayerManager="*res://script/manager/playerManager.gd"
 InputManager="*res://script/manager/inputManager.gd"
 CursorManager="*res://script/manager/cursorManager.gd"
 AudioManager="*res://script/manager/audioManager.gd"
+TitleManager="*res://script/manager/titleManager.gd"
 
 [display]
 
