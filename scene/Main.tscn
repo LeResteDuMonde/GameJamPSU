@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcdhxxpw0lxee"]
+[gd_scene load_steps=10 format=3 uid="uid://dcdhxxpw0lxee"]
 
 [ext_resource type="PackedScene" uid="uid://3n3atoqehe5u" path="res://scene/Player.tscn" id="1_5qlf1"]
-[ext_resource type="PackedScene" uid="uid://cgqy7l78bjp34" path="res://scene/Level1.tscn" id="3_2xxfj"]
+[ext_resource type="PackedScene" uid="uid://bxsl1oxcjehbv" path="res://scene/titles/TitleScreen.tscn" id="5_7l5dp"]
+[ext_resource type="PackedScene" uid="uid://buo02u4mru6o0" path="res://scene/titles/ControlScreen.tscn" id="6_ybmoa"]
+[ext_resource type="PackedScene" uid="uid://dpejnty4ev0y" path="res://scene/titles/DestroyScreen.tscn" id="7_uf452"]
+[ext_resource type="PackedScene" uid="uid://qq7fgspy81" path="res://scene/titles/EndScreen.tscn" id="8_b1yq3"]
+[ext_resource type="PackedScene" uid="uid://iccte0re82wh" path="res://scene/titles/LevelSelect.tscn" id="9_4r6d8"]
 [ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="9_whwrj"]
-[ext_resource type="PackedScene" uid="uid://cnt7ywbo2jfs7" path="res://scene/Sun.tscn" id="9_y7b7r"]
+[ext_resource type="PackedScene" uid="uid://cgjnbfc3cf3l1" path="res://scene/titles/Player1Interstice.tscn" id="10_ty023"]
+[ext_resource type="PackedScene" uid="uid://52q4hrcwhgnu" path="res://scene/titles/Player2Interstice.tscn" id="11_arpag"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(2, -2)
@@ -17,14 +22,8 @@ texture = ExtResource("9_whwrj")
 [node name="Player" parent="." instance=ExtResource("1_5qlf1")]
 position = Vector2(0, -32)
 
-[node name="Level1" parent="." instance=ExtResource("3_2xxfj")]
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
-
-[node name="Sun" parent="." instance=ExtResource("9_y7b7r")]
-z_index = -90
-position = Vector2(-198, -128)
 
 [node name="UI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -36,3 +35,24 @@ offset_top = -179.0
 offset_right = 320.0
 offset_bottom = -153.0
 text = "No More Oxygen ! 10s"
+
+[node name="ControlScreen" parent="UI" instance=ExtResource("6_ybmoa")]
+visible = false
+
+[node name="DestructScreen" parent="UI" instance=ExtResource("7_uf452")]
+visible = false
+
+[node name="EndScreen" parent="UI" instance=ExtResource("8_b1yq3")]
+visible = false
+
+[node name="LevelSelect" parent="UI" instance=ExtResource("9_4r6d8")]
+visible = false
+
+[node name="Player1Interstice" parent="UI" instance=ExtResource("10_ty023")]
+visible = false
+
+[node name="Player2Interstice" parent="UI" instance=ExtResource("11_arpag")]
+visible = false
+
+[node name="TitleScreen" parent="UI" instance=ExtResource("5_7l5dp")]
+visible = false
