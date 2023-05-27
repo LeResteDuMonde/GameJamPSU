@@ -31,7 +31,8 @@ func _ready():
 				
 				if(tileID == "s") : setTex(t,sand)
 				
-				t.add_to_group("tiles" + tileID)
+				if(tileID != "X"): t.add_to_group("tiles" + tileID)
+				
 				add_child(t)
 				t.global_position = pos
 		
