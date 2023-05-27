@@ -25,16 +25,14 @@ func onAreaExited(area):
 		isSelected = false
 
 func _input(event):
-	#if (object.name=="oxigene"):
-	#	print_debug("input %s, %s" %[object.name,isSelected])
-		
+	var deletedSomething = false
 	if event.is_action_released("click") && isSelected && GameManager.isDeletePhase:
-	#	print_debug("click")
 		for g in object.get_groups():
-	#		print_debug("click groupe %s"%g)
 			if g != "_physics_process":
-			#	print_debug(get_tree().get_first_node_in_group(g).delete(g))
 				print_debug("groupe %s is called to be deleted" % g)
 				get_tree().call_group(g, "delete",g)
+				deletedSomething = true
+				
+	if deletedSomething:
 		GameManager.switchToPlayPhase()
 

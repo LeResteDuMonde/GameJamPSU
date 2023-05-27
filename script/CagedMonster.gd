@@ -48,5 +48,6 @@ func respawn():
 	position = zero
 		
 func delete(g):
+	unhighlight(g)
 	makeDeadly()
 #func _process(delta):
