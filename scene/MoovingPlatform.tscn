@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://7keiadubnxu6"]
+[gd_scene load_steps=7 format=3 uid="uid://7keiadubnxu6"]
 
 [ext_resource type="Script" path="res://script/movingPlatform.gd" id="1_aqilk"]
 [ext_resource type="Texture2D" uid="uid://d2l7sgyu0wq8o" path="res://sprite/movingPlatform1.png" id="2_m6xjy"]
-[ext_resource type="Script" path="res://script/deletableArea.gd" id="3_10kso"]
 [ext_resource type="Texture2D" uid="uid://bvk5w6vxk67c0" path="res://sprite/movingPlatform2.png" id="3_irhc8"]
 [ext_resource type="Shader" path="res://shader/outline.gdshader" id="3_jlxkn"]
 
@@ -36,7 +35,6 @@ material = SubResource("ShaderMaterial_kp201")
 texture = ExtResource("3_irhc8")
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("3_10kso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.25, -11)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8tfkx4yebvud"]
+[gd_scene load_steps=6 format=3 uid="uid://b8tfkx4yebvud"]
 
 [ext_resource type="Script" path="res://script/cursor.gd" id="1_7n3nm"]
 [ext_resource type="Texture2D" uid="uid://dh81wmabyepc6" path="res://sprite/pointer.png" id="2_1ictm"]
+[ext_resource type="Script" path="res://script/cursorArea.gd" id="3_q710l"]
 [ext_resource type="Texture2D" uid="uid://bqodcy5pq11u6" path="res://sprite/pointLight.webp" id="3_va3o6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfjvf"]
@@ -15,6 +16,7 @@ position = Vector2(2, 2)
 texture = ExtResource("2_1ictm")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_q710l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 512

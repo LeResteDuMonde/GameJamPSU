@@ -43,15 +43,20 @@ func displayTitleScreen():
 	title = titleS.instantiate()
 	main.get_node("UI").add_child(title)
 	
+func hideTitleScreen():
+	if title!=null:
+		print("Hide Title Screen")		
+		main.get_node("UI").remove_child(title)
+		title.queue_free()
+		title = null
+	if interstice!=null:
+		print("Hide interstice")
+		main.get_node("UI").remove_child(interstice)
+		interstice.queue_free()
+		interstice = null
+			
 func _input(event):
 	if event.is_action_pressed("click") and (title != null or interstice != null):
-		print("Hide Title Screen")
-		if title!=null:
-			title.queue_free()
-		if interstice!=null:
-			interstice.queue_free()
-			interstice = null
-			
 		switchToPlayPhase()
 	
 func killPlayer():
@@ -101,7 +106,7 @@ func displayIntersticeScreen(player):
 		interstice = player2Interstice.instantiate()
 	if player==2:
 		interstice = player1Interstice.instantiate()
-	add_child(interstice)
+	main.get_node("UI").add_child(interstice)
 		
 	
 func switchPlayer():	
@@ -125,6 +130,7 @@ func switchToDeletePhase():
 	
 func switchToPlayPhase():
 	print("Finishing Delete Phase")
+	hideTitleScreen()
 	isDeletePhase = false
 	CursorManager.deleteCursor()
 	

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbcd6fr84pr3u"]
+[gd_scene load_steps=5 format=3 uid="uid://dbcd6fr84pr3u"]
 
 [ext_resource type="Script" path="res://script/deletable.gd" id="1_1kjtp"]
 [ext_resource type="Texture2D" uid="uid://bqodcy5pq11u6" path="res://sprite/pointLight.webp" id="1_kx6or"]
-[ext_resource type="Script" path="res://script/deletableArea.gd" id="3_750p1"]
 [ext_resource type="Texture2D" uid="uid://donivqjnmrxf6" path="res://sprite/lamp.png" id="3_ajvyh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xstie"]
@@ -20,7 +19,6 @@ texture_scale = 0.7
 texture = ExtResource("3_ajvyh")
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("3_750p1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_xstie")

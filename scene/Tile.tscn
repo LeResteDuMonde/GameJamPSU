@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpr17yvdebkct"]
+[gd_scene load_steps=6 format=3 uid="uid://bpr17yvdebkct"]
 
 [ext_resource type="Script" path="res://script/deletable.gd" id="1_xwdvg"]
 [ext_resource type="Texture2D" uid="uid://y5fwjdse6sdi" path="res://sprite/groundTile2.png" id="3_kmw2y"]
-[ext_resource type="Script" path="res://script/deletableArea.gd" id="3_wnknv"]
 [ext_resource type="Shader" path="res://shader/outline.gdshader" id="4_8010c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjywy"]
@@ -17,7 +16,6 @@ shader_parameter/line_thickness = 2.0
 script = ExtResource("1_xwdvg")
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("3_wnknv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_hjywy")

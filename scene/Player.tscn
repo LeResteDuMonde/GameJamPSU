@@ -2,12 +2,43 @@
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_mceob"]
 [ext_resource type="SpriteFrames" uid="uid://tl85fq14y76s" path="res://animation/player1.tres" id="2_x6hji"]
-[ext_resource type="Script" path="res://script/deletableArea.gd" id="3_r48kp"]
 [ext_resource type="SpriteFrames" uid="uid://d3fhtgen6qju1" path="res://animation/bootsFlame.tres" id="4_pk4dr"]
 [ext_resource type="Texture2D" uid="uid://bqodcy5pq11u6" path="res://sprite/pointLight.webp" id="5_bd42t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dxre"]
 size = Vector2(20, 32)
+
+[sub_resource type="GDScript" id="GDScript_71pd5"]
+script/source = "extends Area2D
+
+@onready var object = get_node(\"../\")
+#var isSelected = false
+#
+#func _ready():
+#	area_entered.connect(onAreaEntered)
+#	area_exited.connect(onAreaExited)
+#
+func isCursor(area):
+	return area.get_node(\"../\").name == \"Cursor\"
+#
+
+#
+#var lastClick = 0
+#func _input(event):
+#	var deletedSomething = false
+#	if event.is_action_released(\"click\") && isSelected && GameManager.isDeletePhase:
+#		for g in object.get_groups():
+#			if g != \"_physics_process\":
+#				print_debug(\"groupe %s is called to be deleted\" % g)
+#				get_tree().call_group(g, \"delete\",g)
+#				deletedSomething = true
+#
+#	if deletedSomething:
+#		#GameManager.switchToPlayPhase()
+#		lastClick = Time.get_ticks_msec()      
+#		GameManager.displayIntersticeScreen(GameManager.currPlayer)
+#
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1eid"]
 size = Vector2(19, 25.25)
@@ -24,7 +55,7 @@ shape = SubResource("RectangleShape2D_2dxre")
 [node name="oxigene" type="Node2D" parent="." groups=["oxygene"]]
 
 [node name="Area2D" type="Area2D" parent="oxigene"]
-script = ExtResource("3_r48kp")
+script = SubResource("GDScript_71pd5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="oxigene/Area2D"]
 position = Vector2(-13, -2)
@@ -33,7 +64,6 @@ shape = SubResource("RectangleShape2D_o1eid")
 [node name="boots" type="Node2D" parent="." groups=["boots"]]
 
 [node name="Area2D" type="Area2D" parent="boots"]
-script = ExtResource("3_r48kp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boots/Area2D"]
 position = Vector2(5, 14.5)
