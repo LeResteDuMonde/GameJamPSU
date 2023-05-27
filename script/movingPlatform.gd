@@ -19,7 +19,18 @@ func _physics_process(delta):
 	if deltax < -amplitude: 
 		direction = 1
 		
-	move_and_collide(move)
+	var collision = move_and_collide(move)
+	if collision:
+		var collider = collision.get_collider()
+		var collName = collider.name
+		if collName == "StarShip":
+			pass
+		elif collName == "Player":
+			collider.move_and_collide(move)
+			move_and_collide(move)
+		else:
+			direction = -direction	
+		
 	
 func highlight(g):
 	if deleteNumber == 0:
