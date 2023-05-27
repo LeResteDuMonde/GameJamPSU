@@ -2,6 +2,7 @@ extends Node
 	
 @onready var ui = get_tree().root.get_node("Main/UI")
 @onready var titleScreen = ui.get_node("TitleScreen")
+@onready var levelSelectScreen = ui.get_node("LevelSelect")
 @onready var controlScreen = ui.get_node("ControlScreen")
 @onready var destructScreen = ui.get_node("DestructScreen")
 @onready var endScreen = ui.get_node("EndScreen")
@@ -12,8 +13,13 @@ func _ready():
 
 func displayTitleScreen():
 	print("Show Title Screen")
-	print(titleScreen)
 	titleScreen.visible = true
+	
+func displayLevelSelect():
+	levelSelectScreen.visible = true
+	
+func displayControlScreen():
+	controlScreen.visible = true
 	
 func displayDestructScreen():
 	print("Show Destruct Screen")
@@ -45,11 +51,17 @@ func hideTitleScreens():
 	endScreen.visible = false
 	player1Interstice.visible = false
 	player2Interstice.visible = false
+	levelSelectScreen.visible = false
 	
 func _input(event):
-	if event.is_action_pressed("click") and (titleScreen.visible or player1Interstice.visible or player2Interstice.visible):
-		hideTitleScreens()
-		GameManager.startPlayPhase()
-	elif event.is_action_pressed("click") and (destructScreen.visible):
-		hideTitleScreens()
-		GameManager.startDeletePhase()
+	if event.is_action_pressed("click"):
+		if titleScreen.visible or endScreen.visible:
+			hideTitleScreens()
+			displayLevelSelect()
+			CursorManager.spawnCursor()
+		elif controlScreen.visible or player1Interstice.visible or player2Interstice.visible:
+			hideTitleScreens()
+			GameManager.startPlayPhase()
+		elif destructScreen.visible:
+			hideTitleScreens()
+			GameManager.startDeletePhase()

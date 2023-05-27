@@ -1,12 +1,14 @@
 extends Node
 
 var playerS = preload("res://scene/Player.tscn")
-var player
+@onready var player = GameManager.main.get_node("Player")
+var level
 var playerInitialPos
 
-func _ready():
-	player = GameManager.main.get_node("Player")
-	playerInitialPos = GameManager.main.get_node("Level1/PlayerSpawn").position
+func spawnPlayer(lev):
+	level = lev
+	playerInitialPos = level.get_node("PlayerSpawn").position 
+#	GameManager.main.get_node("Level/PlayerSpawn").position
 	respawnPlayer()
 	
 func movePlayer(delta,direction,jump):
@@ -14,6 +16,7 @@ func movePlayer(delta,direction,jump):
 		player.move(delta,direction,jump)
 
 func respawnPlayer():
+	print(playerInitialPos)
 	player.position = playerInitialPos
 	player.velocity = Vector2.ZERO
 #	player = playerS.instantiate()

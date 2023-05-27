@@ -1,5 +1,90 @@
-[gd_scene format=3 uid="uid://iccte0re82wh"]
+[gd_scene load_steps=13 format=3 uid="uid://iccte0re82wh"]
 
-[node name="LevelSelect" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[ext_resource type="Texture2D" uid="uid://bx106kiw7r65u" path="res://sprite/levelMapScreen.png" id="1_gybvp"]
+[ext_resource type="Texture2D" uid="uid://bofg4udrskcki" path="res://sprite/iconeLevel1.png" id="2_upg6y"]
+[ext_resource type="Script" path="res://script/levelSelect.gd" id="3_gh3bk"]
+[ext_resource type="Texture2D" uid="uid://bldj5n2c7xrlo" path="res://sprite/iconeLevel2.png" id="3_k7d4g"]
+[ext_resource type="Shader" path="res://shader/outline.gdshader" id="3_wgiwq"]
+[ext_resource type="Texture2D" uid="uid://dwx0pplqn8v7e" path="res://sprite/iconeLevel3.png" id="4_ygc05"]
+[ext_resource type="Texture2D" uid="uid://8tv826gmu0y8" path="res://sprite/iconeLevel4.png" id="5_1jdog"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lucvo"]
+shader = ExtResource("3_wgiwq")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fj04h"]
+radius = 29.0689
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qbsqs"]
+shader = ExtResource("3_wgiwq")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3nux"]
+shader = ExtResource("3_wgiwq")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcrfw"]
+shader = ExtResource("3_wgiwq")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 2.0
+
+[node name="LevelSelect" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+texture = ExtResource("1_gybvp")
+
+[node name="Level1" type="Area2D" parent="."]
+script = ExtResource("3_gh3bk")
+
+[node name="Highlight" type="Sprite2D" parent="Level1"]
+visible = false
+material = SubResource("ShaderMaterial_lucvo")
+position = Vector2(2, -2)
+texture = ExtResource("2_upg6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1"]
+position = Vector2(-204, 60)
+shape = SubResource("CircleShape2D_fj04h")
+
+[node name="Level2" type="Area2D" parent="."]
+script = ExtResource("3_gh3bk")
+
+[node name="Highlight" type="Sprite2D" parent="Level2"]
+visible = false
+material = SubResource("ShaderMaterial_qbsqs")
+position = Vector2(2, -2)
+texture = ExtResource("3_k7d4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2"]
+position = Vector2(-91, -93)
+shape = SubResource("CircleShape2D_fj04h")
+
+[node name="Level3" type="Area2D" parent="."]
+script = ExtResource("3_gh3bk")
+
+[node name="Highlight" type="Sprite2D" parent="Level3"]
+visible = false
+material = SubResource("ShaderMaterial_r3nux")
+position = Vector2(2, -2)
+texture = ExtResource("4_ygc05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level3"]
+position = Vector2(33, 76)
+shape = SubResource("CircleShape2D_fj04h")
+
+[node name="Level4" type="Area2D" parent="."]
+script = ExtResource("3_gh3bk")
+
+[node name="Highlight" type="Sprite2D" parent="Level4"]
+visible = false
+material = SubResource("ShaderMaterial_pcrfw")
+position = Vector2(2, -2)
+texture = ExtResource("5_1jdog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level4"]
+position = Vector2(206, -87)
+shape = SubResource("CircleShape2D_fj04h")

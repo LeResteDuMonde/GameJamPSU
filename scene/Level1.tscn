@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgqy7l78bjp34"]
+[gd_scene load_steps=9 format=3 uid="uid://cgqy7l78bjp34"]
 
 [ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="1_0w33n"]
+[ext_resource type="Script" path="res://script/level.gd" id="1_4bywp"]
 [ext_resource type="Script" path="res://script/tiles.gd" id="2_8d4it"]
 [ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="3_b8mys"]
 [ext_resource type="PackedScene" uid="uid://dbcd6fr84pr3u" path="res://scene/Lamp.tscn" id="4_pxhfe"]
 [ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="5_sua0g"]
 [ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="6_wht0l"]
+[ext_resource type="PackedScene" uid="uid://cnt7ywbo2jfs7" path="res://scene/Sun.tscn" id="8_lxotu"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_4bywp")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
@@ -42,3 +45,7 @@ position = Vector2(-28, 24)
 position = Vector2(242, 118)
 speed = 0.01
 angle = 90.0
+
+[node name="Sun" parent="." instance=ExtResource("8_lxotu")]
+z_index = -90
+position = Vector2(-198, -128)

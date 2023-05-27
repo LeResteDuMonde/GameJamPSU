@@ -6,16 +6,18 @@ var root
 var web 
 var oxygenDisplay
 
-var isDeletePhase = false
-var isPlayPhase = false
-var player1Alive = true
-var player2Alive = true
+var isDeletePhase
+var isPlayPhase
+var player1Alive
+var player2Alive
 var currPlayer
 
 #dying of oxygene
-var timeEnable = false
+var timeEnable
 var timeStamp = 0
 var timeToDeath = 10
+
+var level
 
 
 # Called when the node enters the scene tree for the first time.
@@ -36,7 +38,18 @@ func _process(delta):
 		
 	if timeEnable and isPlayPhase and timeStamp + timeToDeath*1000 < Time.get_ticks_msec():
 		killPlayer()
-	
+		
+func startGame(lev):
+	level = lev
+	GameManager.main.add_child(level)
+	await get_tree().create_timer(.1).timeout	
+	TitleManager.hideTitleScreens()
+	TitleManager.displayControlScreen()
+	isDeletePhase = false
+	isPlayPhase = false
+	player1Alive = true
+	player2Alive = true
+	timeEnable = false
 	
 func quit():
 	get_tree().quit()
@@ -53,23 +66,25 @@ func killPlayer():
 			player2Alive = false
 			
 		if not player1Alive and not player2Alive:
-			TitleManager.displayEndScreen(0)
+			endGame(0)
 		else:
 			switchPlayer()
 			PlayerManager.respawnPlayer()
 			TitleManager.displayIntersticeScreen(currPlayer)
+		
+func endGame(winner):
+	TitleManager.displayEndScreen(winner)
+	level.queue_free()
 	
 func win():
 	endPlayPhase()	
 	if not player1Alive:
-		TitleManager.displayEndScreen(2)
+		endGame(1)
 	elif not player2Alive:
-		TitleManager.displayEndScreen(1)
+		endGame(2)
 	else:
 		TitleManager.displayDestructScreen()
 
-		
-	
 func switchPlayer():	
 	if currPlayer == 1:
 		currPlayer = 2

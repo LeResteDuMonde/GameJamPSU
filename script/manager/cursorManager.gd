@@ -10,9 +10,9 @@ func _ready():
 func spawnCursor():
 	if cursor == null:
 		cursor = cursorS.instantiate()
-		GameManager.main.add_child(cursor)
+		GameManager.main.get_node("UI").add_child(cursor)
 
 func deleteCursor():
 	if cursor != null:
-		GameManager.main.remove_child(cursor)	
+		GameManager.main.get_node("UI").remove_child(cursor)	
 		cursor.queue_free()
