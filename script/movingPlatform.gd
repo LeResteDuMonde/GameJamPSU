@@ -46,7 +46,7 @@ func _physics_process(delta):
 		else:
 			direction = -direction
 			
-	#print(move_and_collide(move))
+	move_and_collide(move)
 	if collision : 
 		remove_collision_exception_with(collider)
 		
