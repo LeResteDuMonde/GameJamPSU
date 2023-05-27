@@ -1,10 +1,14 @@
 extends Node2D
 
 func highlight(g):
-	get_node("Highlight").visible = true
+	var high = get_node("Highlight")
+	if high != null:
+		high.visible = true
 	
 func unhighlight(g):
-	get_node("Highlight").visible = false
+	var high = get_node("Highlight")
+	if high != null:
+		high.visible = false
 
 func delete(g):
 	print_debug("delete")
