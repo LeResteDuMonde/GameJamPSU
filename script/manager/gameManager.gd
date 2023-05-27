@@ -10,6 +10,7 @@ var isPlayPhase = false
 var player1Alive = true
 var player2Alive = true
 var currPlayer = 1
+var timeEnable = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

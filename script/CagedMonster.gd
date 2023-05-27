@@ -15,7 +15,8 @@ func _ready():
 func makeDeadly():#TODO connect to click
 	isDeadly = true
 	var cage  : Sprite2D = get_node("cage")
-	cage.queue_free()
+	if cage!=null:
+		cage.queue_free()
 	#TODO change sprit to animated sprit
 
 func _physics_process(delta):
@@ -46,6 +47,6 @@ func unhighlight():
 func respawn():
 	position = zero
 		
-func delete():
+func delete(g):
 	makeDeadly()
 #func _process(delta):

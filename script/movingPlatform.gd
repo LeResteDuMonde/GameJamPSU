@@ -19,7 +19,7 @@ func _physics_process(delta):
 	
 	move_and_collide(move)
 	
-func delete():
+func delete(g):
 	print_debug("delete the moving platform")
 	if deleteNumber==2:
 		queue_free()

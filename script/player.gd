@@ -31,6 +31,12 @@ func move(delta, direction, jump):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		#print_debug(collider.name)
+		if collider.name == "StarShip":
+			GameManager.win()
 	
 func kill():
 #	PlayerManager.respawnPlayer()
@@ -58,4 +64,11 @@ func analogicJump(delta,jump):
 
 func applyGravity(delta):
 	velocity.y += gravity * delta
+	
+func delete(g):
+	if g=="oxigene":
+		GameManager.timerEnable = true
+		GameManager.startTimer()
+	if g=="boots":
+		jumpIsAnalogic = false
 	
