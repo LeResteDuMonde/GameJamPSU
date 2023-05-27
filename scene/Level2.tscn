@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3y5bd0op8lmp"]
+[gd_scene load_steps=9 format=3 uid="uid://c3y5bd0op8lmp"]
 
 [ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="1_glgcc"]
 [ext_resource type="Script" path="res://script/level.gd" id="1_k8nad"]
 [ext_resource type="Script" path="res://script/tiles.gd" id="2_meyeh"]
 [ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="3_c4aer"]
 [ext_resource type="PackedScene" uid="uid://cnt7ywbo2jfs7" path="res://scene/Sun.tscn" id="4_ewjcb"]
+[ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="6_dlo77"]
+[ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="7_7mklq"]
+[ext_resource type="PackedScene" uid="uid://dbcd6fr84pr3u" path="res://scene/Lamp.tscn" id="7_gfa2a"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_k8nad")
@@ -17,10 +20,34 @@ texture = ExtResource("1_glgcc")
 script = ExtResource("2_meyeh")
 
 [node name="StarShip" parent="." instance=ExtResource("3_c4aer")]
-position = Vector2(283, -106)
+position = Vector2(-4, 26)
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(-1, 126)
 
 [node name="Sun" parent="." instance=ExtResource("4_ewjcb")]
 position = Vector2(1, -103)
+
+[node name="CagedMonster" parent="." instance=ExtResource("6_dlo77")]
+position = Vector2(-200, -22)
+
+[node name="CagedMonster2" parent="." instance=ExtResource("6_dlo77")]
+position = Vector2(266, -5)
+
+[node name="LightSource" parent="." instance=ExtResource("7_gfa2a")]
+position = Vector2(-46, 88)
+
+[node name="MoovingPlatform" parent="." instance=ExtResource("7_7mklq")]
+position = Vector2(160, 180)
+speed = 0.02
+amplitude = 30.0
+angle = 90.0
+
+[node name="LightSource2" parent="MoovingPlatform" instance=ExtResource("7_gfa2a")]
+position = Vector2(-36, -31)
+
+[node name="LightSource3" parent="MoovingPlatform" instance=ExtResource("7_gfa2a")]
+position = Vector2(33, -34)
+
+[node name="LightSource2" parent="." instance=ExtResource("7_gfa2a")]
+position = Vector2(-237, -9)
