@@ -52,6 +52,7 @@ func startGame(lev,levID):
 	player1Alive = true
 	player2Alive = true
 	timeEnable = false
+	oxygenDisplay.visible = false
 	CursorManager.deleteCursor()
 	
 func quit():
@@ -80,11 +81,12 @@ func endGame(winner):
 	level.queue_free()
 	
 func win():
+	print("win")
 	endPlayPhase()	
 	if not player1Alive:
-		endGame(1)
-	elif not player2Alive:
 		endGame(2)
+	elif not player2Alive:
+		endGame(1)
 	else:
 		TitleManager.displayDestructScreen()
 

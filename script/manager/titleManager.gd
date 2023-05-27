@@ -52,6 +52,9 @@ func hideTitleScreens():
 	player1Interstice.visible = false
 	player2Interstice.visible = false
 	levelSelectScreen.visible = false
+	endScreen.get_node("Player1").visible = false
+	endScreen.get_node("Player2").visible = false
+	endScreen.get_node("Death").visible = false
 	
 func _input(event):
 	if event.is_action_pressed("click"):
