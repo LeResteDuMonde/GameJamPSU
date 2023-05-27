@@ -1,8 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbcd6fr84pr3u"]
+[gd_scene load_steps=7 format=3 uid="uid://dbcd6fr84pr3u"]
 
 [ext_resource type="Script" path="res://script/deletable.gd" id="1_1kjtp"]
 [ext_resource type="Texture2D" uid="uid://bqodcy5pq11u6" path="res://sprite/pointLight.webp" id="1_kx6or"]
 [ext_resource type="Texture2D" uid="uid://donivqjnmrxf6" path="res://sprite/lamp.png" id="3_ajvyh"]
+[ext_resource type="Shader" path="res://shader/outline.gdshader" id="4_5tcj0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vpde0"]
+shader = ExtResource("4_5tcj0")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 0.628
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xstie"]
 radius = 3.16228
@@ -16,6 +22,11 @@ texture = ExtResource("1_kx6or")
 texture_scale = 0.7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_ajvyh")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vpde0")
 texture = ExtResource("3_ajvyh")
 
 [node name="Area2D" type="Area2D" parent="."]
