@@ -19,8 +19,9 @@ script = ExtResource("1_w8mgu")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(1, 0.588235, 0, 0.494118)
+energy = 1.3
 texture = ExtResource("1_moj6j")
-texture_scale = 6.36
+texture_scale = 15.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_crjn8")

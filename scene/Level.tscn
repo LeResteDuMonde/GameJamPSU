@@ -17,7 +17,7 @@ script = ExtResource("1_tuho5")
 
 [node name="MoovingPlatform" parent="." instance=ExtResource("2_0laq4")]
 position = Vector2(-82, 168)
-speed = 100.0
+speed = 1.0
 amplitude = 10.0
 direction = 0.0
 

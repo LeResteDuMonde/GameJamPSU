@@ -28,7 +28,7 @@ func _ready():
 				var pos = Vector2(jM,iM)
 				
 				if(tileMap[(i-1)*WIDTH+j] == "0"): setTex(t,ceiling)
-#				elif (tileMap[(i+1)*WIDTH+j] == "0"): setTex(t,ceiling,true)
+				elif (i < HEIGHT - 1 and tileMap[(i+1)*WIDTH+j] == "0"): setTex(t,ceiling,true)
 				if(tileID == "S") : setTex(t,sand)
 				
 				if(tileID != "X"): t.add_to_group("tiles" + tileID)
@@ -41,7 +41,7 @@ func _ready():
 func setTex(t,tex, flip = false):
 	var sprite = t.get_node("Sprite2D")
 	sprite.texture = tex
-	sprite.flip_h = flip
+	sprite.flip_v = flip
 
 func loadFile(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)

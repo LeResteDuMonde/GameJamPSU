@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://3n3atoqehe5u"]
+[gd_scene load_steps=9 format=3 uid="uid://3n3atoqehe5u"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_mceob"]
 [ext_resource type="SpriteFrames" uid="uid://tl85fq14y76s" path="res://animation/player1.tres" id="2_x6hji"]
 [ext_resource type="Script" path="res://script/deletableArea.gd" id="3_r48kp"]
 [ext_resource type="SpriteFrames" uid="uid://d3fhtgen6qju1" path="res://animation/bootsFlame.tres" id="4_pk4dr"]
+[ext_resource type="Texture2D" uid="uid://bqodcy5pq11u6" path="res://sprite/pointLight.webp" id="5_bd42t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dxre"]
 size = Vector2(20, 32)
@@ -47,3 +48,7 @@ sprite_frames = ExtResource("4_pk4dr")
 [node name="Body" type="AnimatedSprite2D" parent="Sprites"]
 sprite_frames = ExtResource("2_x6hji")
 animation = &"highlightOxygen"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.588235, 0, 0.494118)
+texture = ExtResource("5_bd42t")
