@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbcd6fr84pr3u"]
+
+[ext_resource type="Script" path="res://script/deletable.gd" id="1_1kjtp"]
+[ext_resource type="Texture2D" uid="uid://bqodcy5pq11u6" path="res://sprite/pointLight.webp" id="1_kx6or"]
+[ext_resource type="Texture2D" uid="uid://gu8h8phjmxeu" path="res://sprite/sun.jpg" id="2_5ped1"]
+[ext_resource type="Script" path="res://script/deletableArea.gd" id="3_750p1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xstie"]
+radius = 3.16228
+
+[node name="LightSource" type="Node2D" groups=["lamps"]]
+script = ExtResource("1_1kjtp")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+texture = ExtResource("1_kx6or")
+texture_scale = 0.7
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_5ped1")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_750p1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xstie")

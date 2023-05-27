@@ -29,7 +29,7 @@ var title
 func displayTitleScreen():
 	print("Show Title Screen")
 	title = titleS.instantiate()
-	main.add_child(title)
+	main.get_node("UI").add_child(title)
 	
 func _input(event):
 	if event.is_action_released("click") and title != null:
@@ -39,13 +39,16 @@ func _input(event):
 	
 func killPlayer():
 	if currPlayer == 1:
+		print("Killed Player 1")
 		player1Alive = false
 	elif currPlayer == 2:
+		print("Killed Player 2")
 		player2Alive = false
 		
 	if not player1Alive and not player2Alive:
 		displayEndScreen(0)
 	else:
+		switchPlayer()
 		PlayerManager.respawnPlayer()
 		switchToPlayPhase()
 	
@@ -61,7 +64,7 @@ var endS = preload("res://scene/EndScreen.tscn")
 
 func displayEndScreen(winner):
 	var end = endS.instantiate()
-	main.add_child(end)
+	main.get_node("UI").add_child(end)
 	if winner == 1:
 		end.get_node("Player1").visible = true
 	elif winner == 2:
