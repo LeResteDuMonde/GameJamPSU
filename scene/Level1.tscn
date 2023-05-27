@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://22uafiw532np"]
+[gd_scene load_steps=7 format=3 uid="uid://cgqy7l78bjp34"]
 
 [ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="1_0w33n"]
 [ext_resource type="Script" path="res://script/tiles.gd" id="2_8d4it"]
@@ -20,7 +20,7 @@ script = ExtResource("2_8d4it")
 position = Vector2(283, -106)
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
-position = Vector2(-283, 19)
+position = Vector2(-283, 13)
 
 [node name="CagedMonster" parent="." instance=ExtResource("5_sua0g")]
 position = Vector2(1, -1)
@@ -30,13 +30,13 @@ position = Vector2(6, -104)
 speed = 0.01
 
 [node name="LightSource" parent="MoovingPlatform" instance=ExtResource("4_pxhfe")]
-position = Vector2(-55, -36)
+position = Vector2(-55, -33)
 
 [node name="LightSource" parent="." instance=ExtResource("4_pxhfe")]
-position = Vector2(233, -29)
+position = Vector2(257, -76)
 
 [node name="LightSource2" parent="." instance=ExtResource("4_pxhfe")]
-position = Vector2(-34, 34)
+position = Vector2(-28, 24)
 
 [node name="MoovingPlatform2" parent="." instance=ExtResource("3_b8mys")]
 position = Vector2(242, 118)
