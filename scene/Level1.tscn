@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgqy7l78bjp34"]
+
+[ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="1_0w33n"]
+[ext_resource type="Script" path="res://script/tiles.gd" id="2_8d4it"]
+[ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="3_b8mys"]
+[ext_resource type="PackedScene" uid="uid://dbcd6fr84pr3u" path="res://scene/Lamp.tscn" id="4_pxhfe"]
+[ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="5_sua0g"]
+[ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="6_wht0l"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+texture = ExtResource("1_0w33n")
+
+[node name="Tiles" type="Node2D" parent="."]
+script = ExtResource("2_8d4it")
+
+[node name="StarShip" parent="." instance=ExtResource("6_wht0l")]
+position = Vector2(283, -106)
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2(-283, 13)
+
+[node name="CagedMonster" parent="." instance=ExtResource("5_sua0g")]
+position = Vector2(1, -1)
+
+[node name="MoovingPlatform" parent="." instance=ExtResource("3_b8mys")]
+position = Vector2(6, -104)
+speed = 0.01
+
+[node name="LightSource" parent="MoovingPlatform" instance=ExtResource("4_pxhfe")]
+position = Vector2(-55, -33)
+
+[node name="LightSource" parent="." instance=ExtResource("4_pxhfe")]
+position = Vector2(257, -76)
+
+[node name="LightSource2" parent="." instance=ExtResource("4_pxhfe")]
+position = Vector2(-28, 24)
+
+[node name="MoovingPlatform2" parent="." instance=ExtResource("3_b8mys")]
+position = Vector2(242, 118)
+speed = 0.01
+angle = 90.0
