@@ -50,7 +50,7 @@ func move(delta, direction, jump):
 		if !GameManager.isPlayPhase: return
 		if collider.name == "StarShip":
 			GameManager.win()
-		elif collider.name == "CagedMonster":
+		elif  "CagedMonster".is_subsequence_of(collider.name):
 			if collider.isDeadly:
 				kill()
 	

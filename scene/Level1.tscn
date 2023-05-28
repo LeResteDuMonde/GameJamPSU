@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://script/tiles.gd" id="2_8d4it"]
 [ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="3_b8mys"]
 [ext_resource type="PackedScene" uid="uid://dbcd6fr84pr3u" path="res://scene/Lamp.tscn" id="4_pxhfe"]
-[ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="5_sua0g"]
 [ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="6_wht0l"]
 [ext_resource type="PackedScene" uid="uid://cnt7ywbo2jfs7" path="res://scene/Sun.tscn" id="8_lxotu"]
 [ext_resource type="PackedScene" uid="uid://yifq3r7f674j" path="res://scene/Boots.tscn" id="9_uc27y"]
+[ext_resource type="PackedScene" uid="uid://bnwpj385lqklh" path="res://scene/CagedMonster.tscn" id="10_hgxtt"]
 [ext_resource type="PackedScene" uid="uid://bc36jfy1dhbcg" path="res://scene/Oxygen.tscn" id="10_qtof7"]
 
 [node name="Level1" type="Node2D"]
@@ -26,9 +26,6 @@ position = Vector2(283, -106)
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(-283, 13)
-
-[node name="CagedMonster" parent="." instance=ExtResource("5_sua0g")]
-position = Vector2(1, -1)
 
 [node name="MoovingPlatform" parent="." instance=ExtResource("3_b8mys")]
 position = Vector2(6, -104)
@@ -60,3 +57,6 @@ position = Vector2(-278, -164)
 
 [node name="oxygen" parent="UI" instance=ExtResource("10_qtof7")]
 position = Vector2(-308, -164)
+
+[node name="CagedMonster" parent="." instance=ExtResource("10_hgxtt")]
+position = Vector2(1, -1)
