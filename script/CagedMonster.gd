@@ -10,8 +10,8 @@ var speedFlyer = 0.0005
 var amplitudeFlyer = 10000
 
 
-var isDeadly = false
-var isFlyer = false
+var isDeadly = true
+var isFlyer = true
 
 var animation : AnimatedSprite2D
 func _ready():
@@ -23,7 +23,7 @@ func _ready():
 	if isFlyer:
 		makeFlyer(-1)
 	
-func makeDeadly():#TODO connect to click
+func makeDeadly():
 	isDeadly = true
 	var cage  : Sprite2D = get_node("cage")
 	animation.play("walking")
@@ -37,7 +37,6 @@ func makeFlyer(_direction=1):
 	isFlyer = true
 	isDeadly=true
 	direction=_direction
-	get_node("Area2D").queue_free()
 	get_node("CollisionBig").queue_free()
 	animation.play("flyer")
 	animation.offset.y = -12
@@ -46,9 +45,9 @@ func makeFlyer(_direction=1):
 		#otherFlyer = Monster.new()
 		#flyerReady()
 		#add_child(otherFlyer)
-func flyerReady():
-	otherFlyer.makeDeadly()
-	otherFlyer.makeFlyer()
+#func flyerReady():
+#	otherFlyer.makeDeadly()
+#	otherFlyer.makeFlyer()
 		
 func _physics_process(delta):
 	# var velocity = get_velocity()\ 
@@ -57,7 +56,7 @@ func _physics_process(delta):
 	if isFlyer:
 		mSpeed = speedFlyer
 		mAmplitude = amplitudeFlyer
-	print(direction)
+	#print(direction)
 	if isDeadly : 
 		var move = Vector2( direction * mSpeed * mAmplitude * delta / 0.016,0)
 		var deltax = global_position.x - zero.x
@@ -69,13 +68,13 @@ func _physics_process(delta):
 		if not isFlyer:
 			move.y += gravityScale * delta
 			
-		var collision_event = move_and_collide(move,true,0.08,true)
+		var collision_event = move_and_collide(move,true)
 		
 		if collision_event != null:
 			var normal = collision_event.get_normal()
 			print_debug(normal,collision_event.get_collider().name)
 			if abs(normal.x) < abs(normal.y):
-				move.y=-0.1
+				move.y=-0.08
 			#if "kill" in collision_event.get_collider(): 
 			#	GameManager.killPlayer()
 			
@@ -99,20 +98,32 @@ func _physics_process(delta):
 func highlight(g):
 	if not isDeadly:
 		get_node("highlightCage").visible = true
-	
+	elif not isFlyer:
+		get_node("MonsterHighlight").visible = true
+	else:
+		get_node("FlyerHighlight").visible = true
+		
 func unhighlight(g):
 	if not isDeadly:
 		get_node("highlightCage").visible = false
+	elif not isFlyer:
+		get_node("MonsterHighlight").visible = false
+	else:
+		get_node("FlyerHighlight").visible = false
 		
 func respawn():
 	position = zero
 		
 func delete(g):
+	print_debug("delete a monster")
 	unhighlight(g)
 	if not isDeadly:
 		makeDeadly()
 	elif not isFlyer:
 		makeFlyer(-1)
+	else:
+		queue_free()
+		
 	
 func pauseMonster():
 	print_debug("paused monster")

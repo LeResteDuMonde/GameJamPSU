@@ -1,37 +1,37 @@
-[gd_scene load_steps=14 format=3 uid="uid://clx0tvtrn2uj6"]
+[gd_scene load_steps=16 format=3 uid="uid://bnwpj385lqklh"]
 
-[ext_resource type="Script" path="res://script/CagedMonster.gd" id="1_5bu71"]
-[ext_resource type="Texture2D" uid="uid://nypj7tlbbykj" path="res://sprite/alienWalk/alienWalking1.png" id="2_74tjy"]
-[ext_resource type="Texture2D" uid="uid://cxho4ihl7i2x3" path="res://sprite/alienFrame1.png" id="2_ly17j"]
-[ext_resource type="Texture2D" uid="uid://cb7nijiylbrkk" path="res://sprite/alienWalk/alienWalking2.png" id="3_d2yux"]
-[ext_resource type="Texture2D" uid="uid://cntcbsbkxppfx" path="res://sprite/cage.png" id="3_dt23o"]
-[ext_resource type="Texture2D" uid="uid://da17ydyl8m4hf" path="res://sprite/alienFrame2.png" id="3_vnvdp"]
-[ext_resource type="Shader" path="res://shader/outline.gdshader" id="4_4kny8"]
-[ext_resource type="Texture2D" uid="uid://wgajmldbaoej" path="res://sprite/littleAlien1.png" id="4_uf1rl"]
-[ext_resource type="Texture2D" uid="uid://b3jtsj7eijvvu" path="res://sprite/littleAlien2.png" id="5_yfbb5"]
+[ext_resource type="Texture2D" uid="uid://nypj7tlbbykj" path="res://sprite/alienWalk/alienWalking1.png" id="1_l1vd4"]
+[ext_resource type="Script" path="res://script/CagedMonster.gd" id="1_ousic"]
+[ext_resource type="Texture2D" uid="uid://cb7nijiylbrkk" path="res://sprite/alienWalk/alienWalking2.png" id="2_tylw6"]
+[ext_resource type="Texture2D" uid="uid://cxho4ihl7i2x3" path="res://sprite/alienFrame1.png" id="3_h4yoe"]
+[ext_resource type="Texture2D" uid="uid://da17ydyl8m4hf" path="res://sprite/alienFrame2.png" id="4_je6pl"]
+[ext_resource type="Texture2D" uid="uid://wgajmldbaoej" path="res://sprite/littleAlien1.png" id="5_j0tre"]
+[ext_resource type="Texture2D" uid="uid://b3jtsj7eijvvu" path="res://sprite/littleAlien2.png" id="6_c4038"]
+[ext_resource type="Texture2D" uid="uid://cntcbsbkxppfx" path="res://sprite/cage.png" id="8_q8pmp"]
+[ext_resource type="Shader" path="res://shader/outline.gdshader" id="9_tg3pm"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4j0k2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5jmpp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ly17j")
+"texture": ExtResource("3_h4yoe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_vnvdp")
+"texture": ExtResource("4_je6pl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ly17j")
+"texture": ExtResource("3_h4yoe")
 }],
 "loop": false,
 "name": &"blink",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_uf1rl")
+"duration": 10.0,
+"texture": ExtResource("5_j0tre")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_yfbb5")
+"texture": ExtResource("6_c4038")
 }],
 "loop": true,
 "name": &"flyer",
@@ -39,56 +39,73 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_74tjy")
+"texture": ExtResource("1_l1vd4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_d2yux")
+"texture": ExtResource("2_tylw6")
 }],
 "loop": true,
 "name": &"walking",
 "speed": 1.65
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_472wj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js1n6"]
 size = Vector2(63, 59.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ccwg"]
-shader = ExtResource("4_4kny8")
-shader_parameter/line_color = Color(1, 1, 0, 1)
-shader_parameter/line_thickness = 0.824
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bswax"]
+shader = ExtResource("9_tg3pm")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 2.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjqs5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rhqrs"]
+shader = ExtResource("9_tg3pm")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c850g"]
+shader = ExtResource("9_tg3pm")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1rqx"]
 size = Vector2(34, 18.5)
 
-[node name="CagedMonster" type="CharacterBody2D" groups=["Monster"]]
-script = ExtResource("1_5bu71")
+[node name="CagedMonster" type="CharacterBody2D" groups=["CagedMonster"]]
+script = ExtResource("1_ousic")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -1)
-sprite_frames = SubResource("SpriteFrames_4j0k2")
+sprite_frames = SubResource("SpriteFrames_5jmpp")
 animation = &"flyer"
+frame_progress = 0.639949
 offset = Vector2(0.001, 0)
 
 [node name="CollisionBig" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("RectangleShape2D_472wj")
+shape = SubResource("RectangleShape2D_js1n6")
 
-[node name="cage" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
-texture = ExtResource("3_dt23o")
-
-[node name="highlightCage" type="Sprite2D" parent="."]
+[node name="FlyerHighlight" type="Sprite2D" parent="."]
 visible = false
-material = SubResource("ShaderMaterial_0ccwg")
+material = SubResource("ShaderMaterial_bswax")
 position = Vector2(1, 0)
-texture = ExtResource("3_dt23o")
+texture = ExtResource("5_j0tre")
+
+[node name="MonsterHighlight" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_rhqrs")
+position = Vector2(0, -1)
+texture = ExtResource("1_l1vd4")
+
+[node name="FighlightCage" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_c850g")
+position = Vector2(1, 0)
+texture = ExtResource("8_q8pmp")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 1.75)
-shape = SubResource("RectangleShape2D_472wj")
+shape = SubResource("RectangleShape2D_js1n6")
 
 [node name="CollisionSmall" type="CollisionShape2D" parent="."]
 position = Vector2(0, -19.25)
-shape = SubResource("RectangleShape2D_sjqs5")
+shape = SubResource("RectangleShape2D_n1rqx")
