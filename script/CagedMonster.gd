@@ -10,14 +10,14 @@ var speedFlyer = 0.0005
 var amplitudeFlyer = 10000
 
 
-var isDeadly = true
-var isFlyer = true
+var isDeadly = false
+var isFlyer = false
 
 var animation : AnimatedSprite2D
 func _ready():
 	zero = global_position;
 	animation = get_node("Animation")
-	animation.animation = "blink"
+	#animation.animation = "blink"
 	if isDeadly:
 		makeDeadly()
 	if isFlyer:
@@ -31,7 +31,6 @@ func makeDeadly():
 		cage.queue_free()
 		
 		
-var Monster = preload("res://scene/CagedMonster.tscn")
 var otherFlyer 
 func makeFlyer(_direction=1):
 	isFlyer = true
@@ -97,7 +96,7 @@ func _physics_process(delta):
 			
 func highlight(g):
 	if not isDeadly:
-		get_node("highlightCage").visible = true
+		get_node("HighlightCage").visible = true
 	elif not isFlyer:
 		get_node("MonsterHighlight").visible = true
 	else:
@@ -105,7 +104,7 @@ func highlight(g):
 		
 func unhighlight(g):
 	if not isDeadly:
-		get_node("highlightCage").visible = false
+		get_node("HighlightCage").visible = false
 	elif not isFlyer:
 		get_node("MonsterHighlight").visible = false
 	else:

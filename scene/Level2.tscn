@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://script/tiles.gd" id="2_meyeh"]
 [ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="3_c4aer"]
 [ext_resource type="PackedScene" uid="uid://cnt7ywbo2jfs7" path="res://scene/Sun.tscn" id="4_ewjcb"]
-[ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="6_dlo77"]
+[ext_resource type="PackedScene" uid="uid://bnwpj385lqklh" path="res://scene/CagedMonster.tscn" id="6_dlo77"]
 [ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="7_7mklq"]
 [ext_resource type="PackedScene" uid="uid://dbcd6fr84pr3u" path="res://scene/Lamp.tscn" id="7_gfa2a"]
 [ext_resource type="PackedScene" uid="uid://yifq3r7f674j" path="res://scene/Boots.tscn" id="9_r8yyq"]

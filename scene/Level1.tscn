@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="6_wht0l"]
 [ext_resource type="PackedScene" uid="uid://cnt7ywbo2jfs7" path="res://scene/Sun.tscn" id="8_lxotu"]
 [ext_resource type="PackedScene" uid="uid://yifq3r7f674j" path="res://scene/Boots.tscn" id="9_uc27y"]
-[ext_resource type="PackedScene" uid="uid://bnwpj385lqklh" path="res://scene/CagedMonster.tscn" id="10_hgxtt"]
 [ext_resource type="PackedScene" uid="uid://bc36jfy1dhbcg" path="res://scene/Oxygen.tscn" id="10_qtof7"]
+[ext_resource type="PackedScene" uid="uid://bnwpj385lqklh" path="res://scene/CagedMonster.tscn" id="11_nimp"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_4bywp")
@@ -58,5 +58,5 @@ position = Vector2(-278, -164)
 [node name="oxygen" parent="UI" instance=ExtResource("10_qtof7")]
 position = Vector2(-308, -164)
 
-[node name="CagedMonster" parent="." instance=ExtResource("10_hgxtt")]
+[node name="CagedMonster1" parent="." instance=ExtResource("11_nimp")]
 position = Vector2(1, -1)

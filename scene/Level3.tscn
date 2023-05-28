@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://7keiadubnxu6" path="res://scene/MoovingPlatform.tscn" id="2_lbsxy"]
 [ext_resource type="PackedScene" uid="uid://dn6nb5cwjnt1m" path="res://scene/StarShip.tscn" id="3_f4q0h"]
 [ext_resource type="PackedScene" uid="uid://cnt7ywbo2jfs7" path="res://scene/Sun.tscn" id="4_t0q3w"]
-[ext_resource type="PackedScene" uid="uid://clx0tvtrn2uj6" path="res://scene/CagedMonster.tscn" id="7_vx20t"]
+[ext_resource type="PackedScene" uid="uid://bnwpj385lqklh" path="res://scene/CagedMonster.tscn" id="7_vx20t"]
 [ext_resource type="PackedScene" uid="uid://yifq3r7f674j" path="res://scene/Boots.tscn" id="8_6ruq2"]
 [ext_resource type="PackedScene" uid="uid://bc36jfy1dhbcg" path="res://scene/Oxygen.tscn" id="9_sec6x"]
 
