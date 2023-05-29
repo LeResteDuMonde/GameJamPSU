@@ -60,7 +60,7 @@ func quit():
 	
 func killPlayer():
 	if isPlayPhase:
-		AudioManager.play("death")
+		AudioManager.play("death",1,0,0.5)
 		endPlayPhase()
 		if currPlayer == 1:
 			print("Killed Player 1")

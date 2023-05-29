@@ -9,12 +9,16 @@ var gravityScale = 100
 var speedFlyer = 0.0005
 var amplitudeFlyer = 10000
 
-
+var clickable
+var cageCollision
 var isDeadly = false
 var isFlyer = false
 
 var animation : AnimatedSprite2D
 func _ready():
+	cageCollision = $CollisionCage
+	clickable = $Area2D/CollisionShape2D
+#	print(clickable)
 	zero = global_position;
 	animation = get_node("Animation")
 	#animation.animation = "blink"
@@ -28,6 +32,7 @@ func makeDeadly():
 	var cage  : Sprite2D = get_node("cage")
 	animation.play("walking")
 	if cage!=null:
+		cageCollision.queue_free()
 		cage.queue_free()
 		
 		
@@ -49,14 +54,17 @@ func makeFlyer(_direction=1):
 #	otherFlyer.makeFlyer()
 		
 func _physics_process(delta):
-	# var velocity = get_velocity()\ 
+#	if (clickable == None): print(clickable)
+#	if(clickable): clickable.disabled = GameManager.isDeletePhase
+	if(GameManager.isPlayPhase): clickable.disabled = true
+	else: clickable.disabled = false
 	var mSpeed = speed
 	var mAmplitude = amplitude
 	if isFlyer:
 		mSpeed = speedFlyer
 		mAmplitude = amplitudeFlyer
 	#print(direction)
-	if isDeadly : 
+	if isDeadly :
 		var move = Vector2( direction * mSpeed * mAmplitude * delta / 0.016,0)
 		var deltax = global_position.x - zero.x
 		if deltax > mAmplitude:
@@ -71,7 +79,7 @@ func _physics_process(delta):
 		
 		if collision_event != null:
 			var normal = collision_event.get_normal()
-			print_debug(normal,collision_event.get_collider().name)
+#			print_debug(normal,collision_event.get_collider().name)
 			if abs(normal.x) < abs(normal.y):
 				move.y=-0.08
 			#if "kill" in collision_event.get_collider(): 
@@ -81,7 +89,7 @@ func _physics_process(delta):
 				
 			if collision_event != null:
 				normal = collision_event.get_normal()
-				print_debug(normal,collision_event.get_collider().name)
+#				print_debug(normal,collision_event.get_collider().name)
 				if abs(normal.x) > abs(normal.y):
 					if normal.x<0:
 						direction = -1
@@ -91,7 +99,7 @@ func _physics_process(delta):
 		collision_event = move_and_collide(move)
 
 	if(randf_range(0,4/delta) < 1):
-		print_debug("play")
+#		print_debug("play")
 		animation.play()
 			
 func highlight(g):

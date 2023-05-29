@@ -5,9 +5,9 @@ func play_clip(clip, time = 0):
 	play()
 	
 	if(time != 0):
-		print("time1")
+#		print("time1")
 		await get_tree().create_timer(time).timeout
-		print("time2")
+#		print("time2")
 		queue_free()
 		
 	

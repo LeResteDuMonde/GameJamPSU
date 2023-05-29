@@ -12,21 +12,33 @@ var isJumping = true
 
 var landed = false
 
-@onready var bootsFlame = $Sprites/Flame
+var landingCount = 0
+
+@onready var bootsFlame = $Sprites/Boots/Flame
+@onready var bootsFlameRight = $Sprites/Boots/Particules/FlameRight
+@onready var bootsFlameLeft = $Sprites/Boots/Particules/FlameLeft
+@onready var dust = $Sprites/Boots/Dust
 @onready var sprite = $Sprites/Body
 @onready var sprites = $Sprites
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var lockAnimationTimer = 0
+func _ready():
+	bootsAnimation(false)
+	
 func _physics_process(delta):
 	var boundaries = get_viewport_rect().size
 	if boundaries.y < global_position.y/2:
 		print_debug("killed by boundaries")
 		kill()
+	lockAnimationTimer -= delta
 	
 func move(delta, direction, jump):
 	
 	if (is_on_floor() and (not landed)):
-#		sprite.play("landing")
+		animate("landing")
+#		landingCount += 1
+#		print("landed " + str(landingCount))
 		landed = true
 	else : landed = is_on_floor()
 	
@@ -34,12 +46,17 @@ func move(delta, direction, jump):
 	else : jump(delta,jump)
 	
 	if direction:
-		if is_on_floor(): sprite.play("walking")
-		else : sprite.play("default")
+		if is_on_floor(): 
+			animate("walking")
+			dust.emitting = true
+		else : 
+			animate("default")
+			dust.emitting = false
 		velocity.x = direction * SPEED
 		sprites.scale.x = 1 if direction > 0 else -1
 	else:
-		sprite.play("default")
+		animate("default")
+		dust.emitting = false
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
@@ -77,14 +94,13 @@ func analogicJump(delta,jump):
 		jumpTimer = 0
 	
 	if(jumpTimer > 0):
-		bootsFlame.visible = true
-		bootsFlame.play()
+		bootsAnimation(true)
 		velocity.y = ANALOGIC_JUMP_VELOCITY * (1 - (jumpTime - jumpTimer) / jumpTime) ** 2
 	else:
 		applyGravity(delta)
 
 func applyGravity(delta):
-	bootsFlame.visible = false
+	bootsAnimation(false)
 	velocity.y += gravity * delta
 	
 func delete(g):
@@ -102,10 +118,24 @@ func delete(g):
 	
 func highlight(g):
 	if g=="oxygene":
-		sprite.play("highlightOxygen")
+		animate("highlightOxygen")
 	elif g=="boots":
-		sprite.play("highlightBoots")
+		animate("highlightBoots")
 	
 func unhighlight(g):
-	sprite.play("default")
+	animate("default")
+	
+func animate(animation):
+	if(lockAnimationTimer < 0):
+		sprite.play(animation)
+	if animation == "landing": 
+		lockAnimationTimer = 0.1
+	
+func bootsAnimation(activate):
+	bootsFlame.visible = activate
+	bootsFlameLeft.emitting = activate
+	bootsFlameRight.emitting = activate
+	dust.emitting = false
+	
+	if activate : bootsFlame.play()
 

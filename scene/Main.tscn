@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcdhxxpw0lxee"]
+[gd_scene load_steps=9 format=3 uid="uid://dcdhxxpw0lxee"]
 
 [ext_resource type="PackedScene" uid="uid://dujxbu1t8eps6" path="res://scene/Player.tscn" id="1_5qlf1"]
 [ext_resource type="PackedScene" uid="uid://bxsl1oxcjehbv" path="res://scene/titles/TitleScreen.tscn" id="5_7l5dp"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dpejnty4ev0y" path="res://scene/titles/DestroyScreen.tscn" id="7_uf452"]
 [ext_resource type="PackedScene" uid="uid://qq7fgspy81" path="res://scene/titles/EndScreen.tscn" id="8_b1yq3"]
 [ext_resource type="PackedScene" uid="uid://bolm236nihk52" path="res://scene/titles/LevelSelect.tscn" id="9_4r6d8"]
-[ext_resource type="Texture2D" uid="uid://hsu4ai50ifts" path="res://sprite/background.png" id="9_whwrj"]
 [ext_resource type="PackedScene" uid="uid://cgjnbfc3cf3l1" path="res://scene/titles/Player1Interstice.tscn" id="10_ty023"]
 [ext_resource type="PackedScene" uid="uid://52q4hrcwhgnu" path="res://scene/titles/Player2Interstice.tscn" id="11_arpag"]
 
@@ -15,7 +14,6 @@ position = Vector2(2, -2)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
-texture = ExtResource("9_whwrj")
 
 [node name="Camera" type="Camera2D" parent="."]
 

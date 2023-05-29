@@ -59,4 +59,4 @@ position = Vector2(-278, -164)
 position = Vector2(-308, -164)
 
 [node name="CagedMonster1" parent="." instance=ExtResource("11_nimp")]
-position = Vector2(1, -1)
+position = Vector2(5, -7)

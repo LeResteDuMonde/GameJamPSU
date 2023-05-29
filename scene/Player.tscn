@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dujxbu1t8eps6"]
+[gd_scene load_steps=17 format=3 uid="uid://dujxbu1t8eps6"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_mceob"]
 [ext_resource type="SpriteFrames" uid="uid://cmg72obyvdc0l" path="res://animation/player1.tres" id="2_x6hji"]
+[ext_resource type="Material" uid="uid://bggsh0emtav3e" path="res://particules/dust.tres" id="3_vvhiq"]
+[ext_resource type="Material" uid="uid://cjm56for5dq08" path="res://particules/flame.tres" id="4_l8nbx"]
 [ext_resource type="SpriteFrames" uid="uid://d3fhtgen6qju1" path="res://animation/bootsFlame.tres" id="4_pk4dr"]
 [ext_resource type="Texture2D" uid="uid://bqodcy5pq11u6" path="res://sprite/pointLight.webp" id="5_bd42t"]
 [ext_resource type="Texture2D" uid="uid://bmqmhjshp4he1" path="res://sprite/explosion/oxygenExplosion1.png" id="5_speek"]
@@ -99,9 +101,32 @@ shape = SubResource("RectangleShape2D_i8880")
 
 [node name="Sprites" type="Node2D" parent="."]
 
-[node name="Flame" type="AnimatedSprite2D" parent="Sprites"]
+[node name="Boots" type="Node2D" parent="Sprites"]
 position = Vector2(5, 18)
+
+[node name="Flame" type="AnimatedSprite2D" parent="Sprites/Boots"]
 sprite_frames = ExtResource("4_pk4dr")
+
+[node name="Dust" type="GPUParticles2D" parent="Sprites/Boots"]
+emitting = false
+amount = 40
+process_material = ExtResource("3_vvhiq")
+lifetime = 0.7
+
+[node name="Particules" type="Node2D" parent="Sprites/Boots"]
+position = Vector2(1, 1)
+
+[node name="FlameRight" type="GPUParticles2D" parent="Sprites/Boots/Particules"]
+position = Vector2(4, 0)
+amount = 15
+process_material = ExtResource("4_l8nbx")
+lifetime = 0.2
+
+[node name="FlameLeft" type="GPUParticles2D" parent="Sprites/Boots/Particules"]
+position = Vector2(-6, 0)
+amount = 15
+process_material = ExtResource("4_l8nbx")
+lifetime = 0.2
 
 [node name="Body" type="AnimatedSprite2D" parent="Sprites"]
 sprite_frames = ExtResource("2_x6hji")
