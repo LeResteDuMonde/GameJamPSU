@@ -17,7 +17,9 @@ const SIZE = 16
 	
 func loadTiles():
 	path = "res://tileMap/level" + str(levelID) + ".txt"
-	var tileMap = loadFile(path)
+	var file = FileAccess.open(path, FileAccess.READ)
+	var tileMap = file.get_as_text()
+#	var tileMap = loadFile(path)
 	print(tileMap.length())
 #	print(tileMap[WIDTH*HEIGHT])
 	for i in range(HEIGHT):

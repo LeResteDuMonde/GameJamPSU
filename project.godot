@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Game Jam PSU"
+config/name="Two (Much) on Mars"
 run/main_scene="res://scene/Main.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://XTRA/iconeItch.png"
+config/windows_native_icon="res://XTRA/icone.ico"
 
 [autoload]
 
@@ -28,6 +29,7 @@ TitleManager="*res://script/manager/titleManager.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=3
 window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720
